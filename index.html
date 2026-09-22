@@ -2,43 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <meta name="theme-color" content="#071815">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
-    <title>Para Mel ♡ | Nuestros 3 meses</title>
+    <meta name="theme-color" content="#180d16">
+
+    <title>Para Mel ♡ | 3 meses</title>
 
     <style>
 
-        /* ==========================================================
-           CONFIGURACIÓN GENERAL
-        ========================================================== */
-
-        :root {
-            --bg: #071815;
-            --bg-2: #0b221e;
-            --bg-3: #102d27;
-
-            --green: #1c554a;
-            --green-soft: #36796b;
-
-            --cream: #fff8ee;
-            --champagne: #ead8b7;
-            --gold: #c8aa73;
-
-            --rose: #d8a0a7;
-            --rose-soft: #f1c6c9;
-
-            --white-soft: rgba(255, 248, 238, .72);
-            --white-muted: rgba(255, 248, 238, .52);
-
-            --glass: rgba(255,255,255,.055);
-            --glass-strong: rgba(255,255,255,.085);
-            --border: rgba(255,255,255,.10);
-
-            --shadow: 0 25px 80px rgba(0,0,0,.35);
-        }
-
+        /* =========================================================
+           RESET
+        ========================================================= */
 
         * {
             margin: 0;
@@ -46,18 +24,13 @@
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
             min-height: 100vh;
-
             overflow-x: hidden;
-
-            color: var(--cream);
 
             font-family:
                 "Segoe UI",
@@ -66,120 +39,295 @@
                 BlinkMacSystemFont,
                 sans-serif;
 
+            color: var(--text);
+
             background:
                 radial-gradient(
-                    circle at 15% 15%,
-                    rgba(216,160,167,.10),
-                    transparent 28%
+                    circle at 15% 10%,
+                    var(--glow-1),
+                    transparent 32%
                 ),
-
                 radial-gradient(
-                    circle at 88% 25%,
-                    rgba(200,170,115,.09),
-                    transparent 28%
+                    circle at 85% 35%,
+                    var(--glow-2),
+                    transparent 34%
                 ),
-
-                radial-gradient(
-                    circle at 50% 90%,
-                    rgba(54,121,107,.15),
-                    transparent 35%
-                ),
-
                 linear-gradient(
                     180deg,
-                    #061411 0%,
-                    #091c18 45%,
-                    #071512 100%
+                    var(--bg-1),
+                    var(--bg-2)
                 );
-        }
 
+            transition:
+                background .35s ease,
+                color .35s ease;
+        }
 
         body.no-scroll {
             overflow: hidden;
         }
-
-
-        ::selection {
-            background: var(--rose);
-            color: #10211c;
-        }
-
 
         button,
         a {
             -webkit-tap-highlight-color: transparent;
         }
 
+        button {
+            font: inherit;
+        }
 
-        /* ==========================================================
-           FONDO
-        ========================================================== */
-
-        #stars {
-            position: fixed;
-
-            inset: 0;
-
-            width: 100%;
-            height: 100%;
-
-            z-index: -3;
-
-            pointer-events: none;
+        ::selection {
+            background: var(--accent);
+            color: var(--selection-text);
         }
 
 
-        .ambient-light {
+        /* =========================================================
+           PALETAS
+
+           Cambiar data-theme en <body>
+        ========================================================= */
+
+        body,
+        body[data-theme="romance"] {
+
+            --bg-1: #170c14;
+            --bg-2: #25101c;
+
+            --surface: #25151e;
+            --surface-hover: #30202a;
+
+            --text: #fff8f5;
+            --text-soft: #d9c5c8;
+            --text-muted: #9e858b;
+
+            --accent: #df8399;
+            --accent-2: #f0b4c1;
+
+            --special: #f3d6b6;
+            --line: #ad6376;
+
+            --border: rgba(255,255,255,.09);
+
+            --glow-1: rgba(223,131,153,.12);
+            --glow-2: rgba(243,214,182,.07);
+
+            --photo-paper: #f8f0e9;
+            --paper: #fffaf4;
+
+            --selection-text: #27131b;
+
+            --button-text: #29151d;
+        }
+
+
+        body[data-theme="lavanda"] {
+
+            --bg-1: #0e0c19;
+            --bg-2: #1a1530;
+
+            --surface: #211b35;
+            --surface-hover: #2c2444;
+
+            --text: #faf7ff;
+            --text-soft: #d4cce2;
+            --text-muted: #968ba8;
+
+            --accent: #b999df;
+            --accent-2: #dbc3f2;
+
+            --special: #f1d9d8;
+            --line: #8460b1;
+
+            --border: rgba(255,255,255,.09);
+
+            --glow-1: rgba(185,153,223,.12);
+            --glow-2: rgba(241,217,216,.07);
+
+            --photo-paper: #f5f0f7;
+            --paper: #fcf8ff;
+
+            --selection-text: #20172b;
+
+            --button-text: #21182c;
+        }
+
+
+        body[data-theme="noche"] {
+
+            --bg-1: #07111c;
+            --bg-2: #0c2033;
+
+            --surface: #10263a;
+            --surface-hover: #17324a;
+
+            --text: #f5f9ff;
+            --text-soft: #c7d2df;
+            --text-muted: #7f91a4;
+
+            --accent: #7da6cc;
+            --accent-2: #acd2eb;
+
+            --special: #e8d3b1;
+            --line: #507aa2;
+
+            --border: rgba(255,255,255,.09);
+
+            --glow-1: rgba(125,166,204,.13);
+            --glow-2: rgba(232,211,177,.07);
+
+            --photo-paper: #f0f4f6;
+            --paper: #fafcff;
+
+            --selection-text: #10202e;
+
+            --button-text: #102230;
+        }
+
+
+        body[data-theme="salvia"] {
+
+            --bg-1: #101510;
+            --bg-2: #1b281e;
+
+            --surface: #233126;
+            --surface-hover: #2e4032;
+
+            --text: #faf8ef;
+            --text-soft: #d2d5c7;
+            --text-muted: #909789;
+
+            --accent: #91ab90;
+            --accent-2: #bacbb4;
+
+            --special: #dbc4a0;
+            --line: #718972;
+
+            --border: rgba(255,255,255,.09);
+
+            --glow-1: rgba(145,171,144,.12);
+            --glow-2: rgba(219,196,160,.07);
+
+            --photo-paper: #f2eee4;
+            --paper: #fbf8ee;
+
+            --selection-text: #172118;
+
+            --button-text: #1b261b;
+        }
+
+
+        body[data-theme="borgona"] {
+
+            --bg-1: #15080b;
+            --bg-2: #2b1017;
+
+            --surface: #31151d;
+            --surface-hover: #402029;
+
+            --text: #fff7f2;
+            --text-soft: #dcc8c3;
+            --text-muted: #a08783;
+
+            --accent: #b65369;
+            --accent-2: #df8999;
+
+            --special: #e0c091;
+            --line: #8e3f52;
+
+            --border: rgba(255,255,255,.09);
+
+            --glow-1: rgba(182,83,105,.13);
+            --glow-2: rgba(224,192,145,.07);
+
+            --photo-paper: #f4e9df;
+            --paper: #fff8f0;
+
+            --selection-text: #2b1016;
+
+            --button-text: #2a1218;
+        }
+
+
+        body[data-theme="claro"] {
+
+            --bg-1: #f4ede8;
+            --bg-2: #eadfd8;
+
+            --surface: #fff8f4;
+            --surface-hover: #f8eee9;
+
+            --text: #3c2c32;
+            --text-soft: #715f65;
+            --text-muted: #9c8b91;
+
+            --accent: #b96f82;
+            --accent-2: #dc9baa;
+
+            --special: #a78659;
+            --line: #c88b99;
+
+            --border: rgba(66,40,50,.10);
+
+            --glow-1: rgba(185,111,130,.10);
+            --glow-2: rgba(167,134,89,.08);
+
+            --photo-paper: #fffaf6;
+            --paper: #fffdfa;
+
+            --selection-text: #fff;
+
+            --button-text: #fff;
+        }
+
+
+        /* =========================================================
+           FONDO LIGERO
+
+           Sin canvas.
+           Sin requestAnimationFrame.
+        ========================================================= */
+
+        .star-field {
             position: fixed;
-
-            left: 50%;
-            top: 50%;
-
-            width: 500px;
-            height: 500px;
-
-            transform: translate(-50%, -50%);
-
-            border-radius: 50%;
-
-            filter: blur(120px);
-
-            background:
-                rgba(216,160,167,.08);
-
-            pointer-events: none;
+            inset: 0;
 
             z-index: -2;
 
-            transition:
-                left .5s ease,
-                top .5s ease;
-        }
-
-
-        .background-grain {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: -1;
-
-            opacity: .03;
-
             pointer-events: none;
 
+            opacity: .52;
+
             background-image:
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,.75) 0 1px,
+                    transparent 1.4px
+                ),
+
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,.35) 0 1px,
+                    transparent 1.3px
+                );
+
+            background-size:
+                135px 135px,
+                205px 205px;
+
+            background-position:
+                17px 24px,
+                70px 80px;
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            INTRO
-        ========================================================== */
+        ========================================================= */
 
         .intro {
             position: fixed;
-
             inset: 0;
 
             z-index: 9999;
@@ -193,55 +341,42 @@
             background:
                 radial-gradient(
                     circle at center,
-                    #12332c 0%,
-                    #071815 55%,
-                    #030a09 100%
+                    var(--surface-hover),
+                    var(--bg-1) 62%
                 );
 
             transition:
-                opacity 1s ease,
-                visibility 1s ease;
+                opacity .65s ease,
+                visibility .65s ease;
         }
-
 
         .intro.hide {
             opacity: 0;
             visibility: hidden;
-
             pointer-events: none;
         }
 
-
         .intro-content {
-            width: min(680px, 100%);
-
+            width: min(670px, 100%);
             text-align: center;
 
             animation:
-                introIn 1.25s ease both;
+                introAppear .8s ease both;
         }
 
-
-        @keyframes introIn {
+        @keyframes introAppear {
 
             from {
                 opacity: 0;
-
-                transform:
-                    translateY(24px)
-                    scale(.97);
+                transform: translateY(18px);
             }
 
             to {
                 opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
+                transform: none;
             }
 
         }
-
 
         .intro-date {
             display: inline-flex;
@@ -250,38 +385,30 @@
 
             padding: 8px 15px;
 
-            margin-bottom: 25px;
+            margin-bottom: 24px;
 
             border-radius: 999px;
 
-            border:
-                1px solid rgba(255,255,255,.10);
+            border: 1px solid var(--border);
 
-            color: var(--champagne);
+            color: var(--special);
 
-            background:
-                rgba(255,255,255,.04);
+            background: var(--surface);
 
             font-size: .72rem;
-
             letter-spacing: 3px;
 
             text-transform: uppercase;
         }
 
-
-        .intro-date span {
+        .intro-date-dot {
             width: 6px;
             height: 6px;
 
             border-radius: 50%;
 
-            background: var(--rose);
-
-            box-shadow:
-                0 0 14px rgba(216,160,167,.8);
+            background: var(--accent);
         }
-
 
         .intro h1 {
             margin-bottom: 22px;
@@ -292,7 +419,7 @@
                 serif;
 
             font-size:
-                clamp(2.8rem, 8vw, 5.7rem);
+                clamp(2.8rem, 8vw, 5.5rem);
 
             line-height: 1;
 
@@ -301,265 +428,377 @@
             letter-spacing: -2px;
         }
 
-
-        .intro h1 em {
-            font-style: normal;
-
-            color: var(--rose-soft);
+        .intro h1 span {
+            color: var(--accent-2);
         }
-
 
         .intro p {
             width: min(520px, 100%);
 
-            margin: 0 auto 34px;
+            margin: 0 auto 33px;
 
-            color: var(--white-soft);
+            color: var(--text-soft);
+
+            line-height: 1.85;
 
             font-size: 1rem;
-
-            line-height: 1.9;
         }
 
 
-        .main-button {
+        /* =========================================================
+           BOTONES
+        ========================================================= */
+
+        .primary-button {
             display: inline-flex;
 
             align-items: center;
             justify-content: center;
 
-            gap: 10px;
-
-            padding: 15px 27px;
+            gap: 9px;
 
             border: none;
+
+            padding: 14px 26px;
 
             border-radius: 999px;
 
             cursor: pointer;
 
-            color: #10231e;
-
-            font-size: .95rem;
-            font-weight: 600;
+            color: var(--button-text);
 
             background:
                 linear-gradient(
                     135deg,
-                    var(--champagne),
-                    var(--rose-soft)
+                    var(--accent-2),
+                    var(--special)
                 );
 
             box-shadow:
-                0 15px 45px rgba(216,160,167,.20);
+                0 12px 35px
+                rgba(0,0,0,.14);
+
+            font-size: .94rem;
+            font-weight: 600;
 
             transition:
-                transform .3s ease,
-                box-shadow .3s ease;
+                transform .22s ease;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .primary-button:active {
+            transform: scale(.97);
         }
 
 
-        .main-button:hover {
-            transform:
-                translateY(-3px)
-                scale(1.025);
-
-            box-shadow:
-                0 20px 55px rgba(216,160,167,.30);
-        }
-
-
-        .intro-heart {
-            margin-top: 30px;
-
-            color: var(--rose-soft);
-
-            font-size: 1.2rem;
-
-            animation:
-                softPulse 1.8s infinite;
-        }
-
-
-        @keyframes softPulse {
-
-            0%,
-            100% {
-                opacity: .65;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.13);
-            }
-
-        }
-
-
-        /* ==========================================================
-           NAVEGACIÓN
-        ========================================================== */
+        /* =========================================================
+           NAV
+        ========================================================= */
 
         .nav {
             position: fixed;
 
-            top: 17px;
+            top: 14px;
             left: 50%;
-
-            transform: translateX(-50%);
 
             z-index: 100;
 
-            width: min(94%, 1000px);
+            width: min(95%, 1020px);
+
+            transform: translateX(-50%);
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            gap: 15px;
+            gap: 10px;
 
             padding:
-                9px 11px
-                9px 19px;
+                8px 9px
+                8px 18px;
 
             border:
                 1px solid var(--border);
 
             border-radius: 999px;
 
-            background:
-                rgba(7,24,21,.67);
-
-            backdrop-filter:
-                blur(18px);
+            background: var(--surface);
 
             box-shadow:
-                0 12px 35px rgba(0,0,0,.18);
+                0 10px 30px rgba(0,0,0,.14);
         }
-
 
         .nav-brand {
             white-space: nowrap;
 
-            font-family:
-                Georgia,
-                serif;
+            color: var(--special);
 
-            font-size: .95rem;
+            font-family: Georgia, serif;
 
-            color: var(--champagne);
+            font-size: .94rem;
         }
-
 
         .nav-links {
             display: flex;
-
-            align-items: center;
-
             gap: 3px;
         }
 
-
         .nav-links a {
-            padding: 8px 12px;
+            padding: 8px 11px;
 
             border-radius: 999px;
 
-            color:
-                rgba(255,248,238,.65);
+            color: var(--text-soft);
 
             text-decoration: none;
 
             font-size: .78rem;
 
-            transition: .25s ease;
+            transition:
+                color .2s ease,
+                background .2s ease;
         }
-
 
         .nav-links a:hover {
-            color: var(--cream);
+            color: var(--text);
 
-            background:
-                rgba(255,255,255,.06);
+            background: var(--surface-hover);
         }
 
+        .nav-actions {
+            display: flex;
 
-        .music-button {
+            align-items: center;
+
+            gap: 6px;
+        }
+
+        .nav-icon-button {
             width: 38px;
             height: 38px;
 
-            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+
+            flex-shrink: 0;
+
+            border:
+                1px solid var(--border);
 
             border-radius: 50%;
 
-            border:
-                1px solid rgba(255,255,255,.10);
+            color: var(--text);
 
-            color: var(--champagne);
-
-            background:
-                rgba(255,255,255,.05);
+            background: var(--surface-hover);
 
             cursor: pointer;
 
             transition:
-                transform .25s ease,
-                background .25s ease;
+                transform .2s ease;
+        }
+
+        .nav-icon-button:hover {
+            transform: scale(1.06);
         }
 
 
-        .music-button:hover {
-            transform: scale(1.08);
+        /* =========================================================
+           SELECTOR DE PALETAS
+        ========================================================= */
 
+        .theme-wrapper {
+            position: relative;
+        }
+
+        .theme-menu {
+            position: absolute;
+
+            top: 48px;
+            right: 0;
+
+            width: 220px;
+
+            padding: 10px;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateY(-6px)
+                scale(.98);
+
+            transform-origin:
+                top right;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 18px;
+
+            background: var(--surface);
+
+            box-shadow:
+                0 18px 45px
+                rgba(0,0,0,.28);
+
+            transition:
+                opacity .18s ease,
+                transform .18s ease,
+                visibility .18s ease;
+        }
+
+        .theme-menu.show {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translateY(0)
+                scale(1);
+        }
+
+        .theme-title {
+            padding:
+                5px 8px 9px;
+
+            color: var(--text-muted);
+
+            font-size: .68rem;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .theme-option {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+
+            border: none;
+
+            padding: 9px;
+
+            border-radius: 12px;
+
+            cursor: pointer;
+
+            color: var(--text);
+
+            background: transparent;
+
+            text-align: left;
+
+            transition:
+                background .18s ease;
+        }
+
+        .theme-option:hover {
+            background: var(--surface-hover);
+        }
+
+        .theme-option.active {
+            background: var(--surface-hover);
+        }
+
+        .theme-preview {
+            width: 28px;
+            height: 28px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            border:
+                2px solid rgba(255,255,255,.22);
+        }
+
+        .theme-option span:last-child {
+            font-size: .82rem;
+        }
+
+        .preview-romance {
             background:
-                rgba(255,255,255,.10);
+                linear-gradient(
+                    135deg,
+                    #25101c 50%,
+                    #df8399 50%
+                );
+        }
+
+        .preview-lavanda {
+            background:
+                linear-gradient(
+                    135deg,
+                    #1a1530 50%,
+                    #b999df 50%
+                );
+        }
+
+        .preview-noche {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0c2033 50%,
+                    #7da6cc 50%
+                );
+        }
+
+        .preview-salvia {
+            background:
+                linear-gradient(
+                    135deg,
+                    #1b281e 50%,
+                    #91ab90 50%
+                );
+        }
+
+        .preview-borgona {
+            background:
+                linear-gradient(
+                    135deg,
+                    #2b1017 50%,
+                    #b65369 50%
+                );
+        }
+
+        .preview-claro {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f4ede8 50%,
+                    #b96f82 50%
+                );
         }
 
 
-        .music-button.playing {
-            animation:
-                musicPulse 1.5s infinite;
-        }
-
-
-        @keyframes musicPulse {
-
-            50% {
-                box-shadow:
-                    0 0 0 7px
-                    rgba(216,160,167,.07);
-            }
-
-        }
-
-
-        /* ==========================================================
-           UTILIDADES
-        ========================================================== */
+        /* =========================================================
+           ESTRUCTURA
+        ========================================================= */
 
         section {
             position: relative;
 
             padding:
-                110px 22px;
+                105px 22px;
         }
-
 
         .container {
-            width:
-                min(1100px, 100%);
-
+            width: min(1100px, 100%);
             margin: auto;
         }
-
 
         .section-label {
             margin-bottom: 13px;
 
             text-align: center;
 
-            color: var(--gold);
+            color: var(--special);
 
             font-size: .7rem;
 
@@ -567,7 +806,6 @@
 
             text-transform: uppercase;
         }
-
 
         .section-title {
             margin-bottom: 18px;
@@ -580,32 +818,30 @@
                 serif;
 
             font-size:
-                clamp(2.1rem, 5vw, 3.7rem);
+                clamp(2.05rem, 5vw, 3.65rem);
 
             font-weight: 400;
 
-            line-height: 1.15;
+            line-height: 1.14;
         }
 
-
         .section-description {
-            width:
-                min(650px, 100%);
+            width: min(650px, 100%);
 
             margin:
-                0 auto 55px;
+                0 auto 54px;
 
             text-align: center;
 
-            color: var(--white-soft);
+            color: var(--text-soft);
 
-            line-height: 1.85;
+            line-height: 1.8;
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            HERO
-        ========================================================== */
+        ========================================================= */
 
         .hero {
             min-height: 100vh;
@@ -614,45 +850,38 @@
             align-items: center;
             justify-content: center;
 
-            padding-top: 145px;
+            padding-top: 140px;
 
             text-align: center;
         }
 
-
         .hero-inner {
-            width:
-                min(950px, 100%);
-
+            width: min(930px, 100%);
             margin: auto;
         }
 
-
         .hero-badge {
             display: inline-flex;
-
             align-items: center;
+            gap: 8px;
 
-            gap: 9px;
-
-            margin-bottom: 28px;
+            margin-bottom: 24px;
 
             padding:
-                8px 15px;
+                8px 14px;
+
+            border-radius: 999px;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 999px;
-
-            color: var(--champagne);
-
             background:
-                rgba(255,255,255,.045);
+                var(--surface);
+
+            color: var(--text-soft);
 
             font-size: .8rem;
         }
-
 
         .badge-dot {
             width: 7px;
@@ -660,86 +889,77 @@
 
             border-radius: 50%;
 
-            background: var(--rose);
-
-            box-shadow:
-                0 0 15px rgba(216,160,167,.75);
+            background: var(--accent);
         }
 
 
-        /* ==========================================================
-           CORAZÓN SVG CORREGIDO
-        ========================================================== */
+        /* =========================================================
+           CORAZÓN
+        ========================================================= */
 
-        .heart-stage {
-            height: 105px;
+        .heart-area {
+            height: 100px;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            margin-bottom: 17px;
+            margin-bottom: 15px;
         }
-
 
         .heart-button {
-            width: 92px;
-            height: 92px;
+            width: 90px;
+            height: 90px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: grid;
+            place-items: center;
 
-            padding: 0;
-
-            border: 0;
-
-            cursor: pointer;
+            border: none;
 
             background: transparent;
+
+            cursor: pointer;
         }
 
-
-        .hero-heart {
-            width: 80px;
-            height: 80px;
+        .heart-svg {
+            width: 75px;
+            height: 75px;
 
             overflow: visible;
 
-            filter:
-                drop-shadow(
-                    0 8px 18px
-                    rgba(216,160,167,.22)
-                );
+            transform-origin: center;
 
             animation:
-                heartBeat 1.8s infinite;
+                heartPulse 2s ease-in-out infinite;
 
-            transform-origin: center;
+            filter:
+                drop-shadow(
+                    0 8px 15px
+                    rgba(0,0,0,.16)
+                );
         }
 
-
-        @keyframes heartBeat {
+        @keyframes heartPulse {
 
             0%,
             100% {
                 transform: scale(1);
             }
 
-            14% {
-                transform: scale(1.09);
+            12% {
+                transform: scale(1.08);
             }
 
-            28% {
+            25% {
                 transform: scale(1);
-            }
-
-            42% {
-                transform: scale(1.055);
             }
 
         }
 
+
+        /* =========================================================
+           HERO TEXTO
+        ========================================================= */
 
         .hero h1 {
             font-family:
@@ -748,54 +968,50 @@
                 serif;
 
             font-size:
-                clamp(3.3rem, 10vw, 7.4rem);
+                clamp(3.2rem, 10vw, 7.2rem);
 
             font-weight: 400;
 
-            letter-spacing: -4px;
+            line-height: .93;
 
-            line-height: .92;
+            letter-spacing: -4px;
         }
 
-
-        .hero h1 .gradient {
+        .hero h1 .gradient-text {
             color: transparent;
 
             background:
                 linear-gradient(
                     120deg,
-                    #fff8ee 0%,
-                    #ead8b7 45%,
-                    #d8a0a7 100%
+                    var(--text),
+                    var(--accent-2),
+                    var(--special)
                 );
 
             -webkit-background-clip: text;
             background-clip: text;
         }
 
-
         .hero-subtitle {
-            width:
-                min(650px, 100%);
+            width: min(650px, 100%);
 
             margin:
-                30px auto 43px;
+                29px auto 42px;
 
-            color: var(--white-soft);
+            color: var(--text-soft);
 
             line-height: 1.9;
 
-            font-size: 1.03rem;
+            font-size: 1.02rem;
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            CONTADOR
-        ========================================================== */
+        ========================================================= */
 
         .countdown {
-            width:
-                min(680px, 100%);
+            width: min(670px, 100%);
 
             margin: auto;
 
@@ -804,107 +1020,72 @@
             grid-template-columns:
                 repeat(4, 1fr);
 
-            gap: 12px;
+            gap: 11px;
         }
 
-
         .count-card {
-            position: relative;
-
-            overflow: hidden;
-
             padding:
-                21px 10px;
+                20px 10px;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 22px;
+            border-radius: 20px;
 
             background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.065),
-                    rgba(255,255,255,.025)
-                );
+                var(--surface);
 
-            backdrop-filter:
-                blur(12px);
+            box-shadow:
+                0 8px 20px
+                rgba(0,0,0,.08);
         }
-
-
-        .count-card::before {
-            content: "";
-
-            position: absolute;
-
-            left: 15%;
-            right: 15%;
-
-            bottom: 0;
-
-            height: 1px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    var(--gold),
-                    transparent
-                );
-
-            opacity: .45;
-        }
-
 
         .count-number {
+            color: var(--text);
+
             font-family:
                 Georgia,
                 serif;
 
             font-size:
-                clamp(1.8rem, 5vw, 2.7rem);
+                clamp(1.7rem, 5vw, 2.55rem);
         }
-
 
         .count-label {
             margin-top: 6px;
 
-            color:
-                rgba(255,248,238,.45);
+            color: var(--text-muted);
 
             font-size: .66rem;
 
-            letter-spacing: 1.7px;
+            letter-spacing: 1.6px;
 
             text-transform: uppercase;
         }
 
-
         #anniversaryMessage {
-            min-height: 24px;
+            min-height: 22px;
 
-            margin-top: 20px;
+            margin-top: 19px;
 
-            color: var(--rose-soft);
+            color: var(--accent-2);
 
-            font-size: .9rem;
+            font-size: .88rem;
         }
 
 
-        /* ==========================================================
-           TRES MESES
-        ========================================================== */
+        /* =========================================================
+           3 MESES
+        ========================================================= */
 
         .three-section {
-            padding-top: 70px;
+            padding-top: 65px;
         }
 
-
-        .three-content-wrapper {
+        .three-wrapper {
             position: relative;
 
-            min-height: 450px;
+            min-height: 440px;
 
             display: flex;
             align-items: center;
@@ -915,104 +1096,93 @@
             text-align: center;
         }
 
-
         .big-three {
             position: absolute;
 
-            font-family:
-                Georgia,
-                serif;
+            font-family: Georgia, serif;
 
             font-size:
-                min(68vw, 570px);
+                min(65vw, 560px);
 
             line-height: .8;
 
             color: transparent;
 
             -webkit-text-stroke:
-                1px rgba(255,248,238,.05);
+                1px var(--border);
 
             user-select: none;
+
+            opacity: .9;
         }
 
-
-        .three-copy {
+        .three-content {
             position: relative;
 
             z-index: 2;
 
-            width:
-                min(760px, 100%);
+            width: min(750px, 100%);
         }
 
-
-        .three-copy h2 {
-            margin-bottom: 27px;
+        .three-content h2 {
+            margin-bottom: 25px;
 
             font-family:
                 Georgia,
                 serif;
 
             font-size:
-                clamp(2.3rem, 7vw, 4.8rem);
+                clamp(2.25rem, 7vw, 4.7rem);
 
             font-weight: 400;
 
             line-height: 1.08;
         }
 
+        .three-content p {
+            color: var(--text-soft);
 
-        .three-copy p {
-            color: var(--white-soft);
+            line-height: 1.95;
 
-            font-size: 1.03rem;
-
-            line-height: 2;
+            font-size: 1.02rem;
         }
 
-
-        .three-copy strong {
-            color: var(--champagne);
-
+        .three-content strong {
+            color: var(--accent-2);
             font-weight: 500;
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            TIMELINE
-        ========================================================== */
+        ========================================================= */
 
         .timeline {
             position: relative;
 
-            width:
-                min(850px, 100%);
+            width: min(840px, 100%);
 
             margin: auto;
         }
-
 
         .timeline::before {
             content: "";
 
             position: absolute;
 
-            left: 50%;
             top: 0;
             bottom: 0;
+            left: 50%;
 
             width: 1px;
 
             background:
                 linear-gradient(
                     transparent,
-                    rgba(200,170,115,.75),
-                    rgba(216,160,167,.8),
+                    var(--line),
                     transparent
                 );
         }
-
 
         .timeline-item {
             position: relative;
@@ -1020,120 +1190,103 @@
             width: 50%;
 
             padding:
-                10px 45px
-                65px 0;
+                9px 43px
+                62px 0;
         }
-
 
         .timeline-item:nth-child(even) {
             margin-left: 50%;
 
             padding:
-                10px 0
-                65px 45px;
+                9px 0
+                62px 43px;
         }
-
 
         .timeline-dot {
             position: absolute;
 
-            right: -7px;
-            top: 25px;
+            top: 23px;
+            right: -6px;
 
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
 
             border-radius: 50%;
 
-            background: var(--gold);
+            background: var(--accent);
 
             box-shadow:
-                0 0 0 7px rgba(200,170,115,.08),
-                0 0 20px rgba(200,170,115,.35);
+                0 0 0 5px var(--bg-2);
         }
-
 
         .timeline-item:nth-child(even)
         .timeline-dot {
-            left: -7px;
+            left: -6px;
             right: auto;
         }
 
-
         .timeline-card {
-            padding: 25px;
+            padding: 24px;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 25px;
+            border-radius: 23px;
 
-            background:
-                rgba(255,255,255,.045);
+            background: var(--surface);
 
-            backdrop-filter:
-                blur(12px);
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,.08);
 
             transition:
-                transform .35s ease,
-                background .35s ease,
-                border-color .35s ease;
+                transform .25s ease,
+                background .25s ease;
         }
-
 
         .timeline-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
 
-            background:
-                rgba(255,255,255,.07);
-
-            border-color:
-                rgba(216,160,167,.22);
+            background: var(--surface-hover);
         }
 
-
         .timeline-date {
-            margin-bottom: 10px;
+            margin-bottom: 9px;
 
-            color: var(--gold);
+            color: var(--special);
 
-            font-size: .72rem;
+            font-size: .71rem;
 
             letter-spacing: 2px;
 
             text-transform: uppercase;
         }
 
-
         .timeline-card h3 {
-            margin-bottom: 11px;
+            margin-bottom: 10px;
 
-            font-family:
-                Georgia,
-                serif;
+            font-family: Georgia, serif;
 
-            font-size: 1.55rem;
+            font-size: 1.5rem;
 
             font-weight: 400;
         }
 
-
         .timeline-card p {
-            color: var(--white-soft);
+            color: var(--text-soft);
 
-            font-size: .91rem;
+            line-height: 1.72;
 
-            line-height: 1.75;
+            font-size: .9rem;
         }
 
 
-        /* ==========================================================
-           GALERÍA
-        ========================================================== */
+        /* =========================================================
+           FOTOS
+        ========================================================= */
 
         .gallery-grid {
-            width:
-                min(970px, 100%);
+            width: min(960px, 100%);
 
             margin: auto;
 
@@ -1142,44 +1295,43 @@
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 27px;
+            gap: 26px;
         }
-
 
         .polaroid {
             position: relative;
 
             padding:
-                11px 11px 50px;
+                10px 10px 48px;
+
+            background:
+                var(--photo-paper);
 
             border-radius: 5px;
 
-            background: #f4eadc;
-
             box-shadow:
-                0 25px 70px rgba(0,0,0,.32);
+                0 20px 50px
+                rgba(0,0,0,.23);
 
             transform:
                 rotate(var(--rotation));
 
             transition:
-                transform .4s ease,
-                box-shadow .4s ease;
+                transform .3s ease,
+                box-shadow .3s ease;
         }
 
-
         .polaroid:hover {
-            z-index: 5;
+            z-index: 4;
 
             transform:
                 rotate(0)
-                translateY(-10px)
-                scale(1.025);
+                translateY(-8px);
 
             box-shadow:
-                0 30px 85px rgba(0,0,0,.42);
+                0 25px 65px
+                rgba(0,0,0,.30);
         }
-
 
         .photo-wrapper {
             width: 100%;
@@ -1189,13 +1341,8 @@
             overflow: hidden;
 
             background:
-                linear-gradient(
-                    145deg,
-                    #23463f,
-                    #805863
-                );
+                var(--surface-hover);
         }
-
 
         .photo-wrapper img {
             width: 100%;
@@ -1204,17 +1351,7 @@
             display: block;
 
             object-fit: cover;
-
-            transition:
-                transform .6s ease;
         }
-
-
-        .polaroid:hover
-        .photo-wrapper img {
-            transform: scale(1.05);
-        }
-
 
         .photo-placeholder {
             width: 100%;
@@ -1229,76 +1366,66 @@
 
             text-align: center;
 
-            color:
-                rgba(255,255,255,.78);
+            color: var(--text-soft);
 
-            font-size: .84rem;
+            font-size: .83rem;
 
             line-height: 1.6;
         }
 
-
         .polaroid-caption {
             position: absolute;
 
-            left: 16px;
-            right: 16px;
-            bottom: 14px;
+            left: 15px;
+            right: 15px;
+            bottom: 13px;
 
-            color: #554143;
+            color: #59464d;
 
             font-family:
                 "Segoe Script",
                 "Comic Sans MS",
                 cursive;
 
-            font-size: .91rem;
+            font-size: .9rem;
         }
 
 
-        /* ==========================================================
-           FRASE CENTRAL
-        ========================================================== */
+        /* =========================================================
+           FRASE
+        ========================================================= */
 
         .quote-section {
             padding:
-                145px 22px;
+                135px 22px;
         }
 
-
         .quote {
-            width:
-                min(900px, 100%);
-
+            width: min(900px, 100%);
             margin: auto;
 
             text-align: center;
         }
 
-
         .quote-mark {
-            height: 70px;
+            height: 66px;
 
-            color:
-                rgba(216,160,167,.24);
+            color: var(--accent);
 
-            font-family:
-                Georgia,
-                serif;
+            opacity: .25;
 
-            font-size: 7rem;
+            font-family: Georgia, serif;
+
+            font-size: 6.5rem;
 
             line-height: .7;
         }
 
-
         .quote p {
-            font-family:
-                Georgia,
-                serif;
+            font-family: Georgia, serif;
 
             font-size:
-                clamp(2rem, 6vw, 4.1rem);
+                clamp(2rem, 6vw, 4rem);
 
             line-height: 1.3;
 
@@ -1307,9 +1434,9 @@
             background:
                 linear-gradient(
                     120deg,
-                    var(--cream),
-                    var(--champagne),
-                    var(--rose-soft)
+                    var(--text),
+                    var(--accent-2),
+                    var(--special)
                 );
 
             -webkit-background-clip: text;
@@ -1317,196 +1444,170 @@
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            RAZONES
-        ========================================================== */
+        ========================================================= */
 
         .reasons-wrapper {
-            width:
-                min(820px, 100%);
+            width: min(810px, 100%);
 
             margin: auto;
 
             text-align: center;
         }
 
-
         .reason-card {
             position: relative;
 
-            min-height: 310px;
+            min-height: 285px;
 
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
 
+            padding: 40px;
+
             overflow: hidden;
 
-            padding: 42px;
-
             border:
-                1px solid rgba(255,255,255,.09);
+                1px solid var(--border);
 
-            border-radius: 34px;
+            border-radius: 30px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(54,121,107,.12),
-                    rgba(216,160,167,.08),
-                    rgba(200,170,115,.06)
-                );
+            background: var(--surface);
 
             box-shadow:
-                inset 0 1px 0
-                rgba(255,255,255,.05);
+                0 15px 40px rgba(0,0,0,.08);
         }
 
-
-        .reason-card::before {
+        .reason-card::after {
             content: "♡";
 
             position: absolute;
 
-            right: -25px;
-            bottom: -85px;
+            right: -20px;
+            bottom: -76px;
 
-            color:
-                rgba(255,255,255,.023);
+            color: var(--accent);
 
-            font-family:
-                Georgia,
-                serif;
+            opacity: .035;
 
-            font-size: 250px;
+            font-family: Georgia, serif;
 
-            pointer-events: none;
+            font-size: 230px;
         }
 
-
         .reason-number {
-            margin-bottom: 23px;
+            margin-bottom: 20px;
 
-            color: var(--gold);
+            color: var(--special);
 
-            font-size: .72rem;
+            font-size: .7rem;
 
             letter-spacing: 3px;
 
             text-transform: uppercase;
         }
 
-
         #reasonText {
-            width:
-                min(680px, 100%);
+            width: min(670px, 100%);
 
-            font-family:
-                Georgia,
-                serif;
+            font-family: Georgia, serif;
 
             font-size:
-                clamp(1.55rem, 5vw, 2.5rem);
+                clamp(1.45rem, 5vw, 2.35rem);
 
             line-height: 1.45;
 
             transition:
-                opacity .25s ease,
-                transform .25s ease;
+                opacity .16s ease,
+                transform .16s ease;
         }
-
 
         .reason-controls {
             display: flex;
             justify-content: center;
 
-            gap: 12px;
+            gap: 11px;
 
-            margin-top: 24px;
+            margin-top: 21px;
         }
 
-
-        .reason-button {
-            width: 49px;
-            height: 49px;
-
-            border-radius: 50%;
+        .round-button {
+            width: 47px;
+            height: 47px;
 
             border:
                 1px solid var(--border);
 
-            color: var(--cream);
+            border-radius: 50%;
+
+            color: var(--text);
 
             background:
-                rgba(255,255,255,.05);
-
-            font-size: 1rem;
+                var(--surface);
 
             cursor: pointer;
 
             transition:
-                transform .25s ease,
-                background .25s ease;
+                transform .2s ease,
+                background .2s ease;
         }
 
+        .round-button:hover {
+            transform: scale(1.06);
 
-        .reason-button:hover {
-            transform: scale(1.08);
-
-            background:
-                rgba(255,255,255,.10);
+            background: var(--surface-hover);
         }
-
 
         .reason-dots {
             display: flex;
             justify-content: center;
 
-            gap: 7px;
+            gap: 6px;
 
-            margin-top: 18px;
+            margin-top: 17px;
         }
-
 
         .reason-dot {
             width: 6px;
             height: 6px;
 
-            border-radius: 50%;
-
-            background:
-                rgba(255,255,255,.20);
-
-            transition:
-                width .25s ease,
-                background .25s ease;
-        }
-
-
-        .reason-dot.active {
-            width: 20px;
-
             border-radius: 999px;
 
-            background: var(--rose);
+            background: var(--text-muted);
+
+            opacity: .35;
+
+            transition:
+                width .2s ease,
+                opacity .2s ease,
+                background .2s ease;
+        }
+
+        .reason-dot.active {
+            width: 19px;
+
+            opacity: 1;
+
+            background: var(--accent);
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            CARTA
-        ========================================================== */
+        ========================================================= */
 
         .letter-section {
             text-align: center;
         }
 
-
         .envelope {
             position: relative;
 
-            width: 285px;
-            height: 185px;
+            width: 275px;
+            height: 178px;
 
             margin:
                 35px auto;
@@ -1514,16 +1615,13 @@
             cursor: pointer;
 
             transition:
-                transform .35s ease;
+                transform .25s ease;
         }
-
 
         .envelope:hover {
             transform:
-                translateY(-8px)
-                rotate(-1deg);
+                translateY(-6px);
         }
-
 
         .envelope-back {
             position: absolute;
@@ -1536,20 +1634,19 @@
             background:
                 linear-gradient(
                     145deg,
-                    #d8b99b,
-                    #ad8078
+                    var(--accent-2),
+                    var(--accent)
                 );
 
             box-shadow:
-                0 25px 65px rgba(0,0,0,.28);
+                0 20px 50px
+                rgba(0,0,0,.18);
         }
-
 
         .envelope-back::before {
             content: "";
 
             position: absolute;
-
             inset: 0;
 
             clip-path:
@@ -1562,22 +1659,19 @@
                 );
 
             background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.17),
-                    rgba(0,0,0,.05)
-                );
+                rgba(255,255,255,.09);
         }
-
 
         .envelope-flap {
             position: absolute;
 
+            top: 0;
             left: 0;
             right: 0;
-            top: 0;
 
-            height: 112px;
+            height: 108px;
+
+            z-index: 3;
 
             clip-path:
                 polygon(
@@ -1586,59 +1680,48 @@
                     50% 100%
                 );
 
-            background: #e5c5ab;
-
-            z-index: 3;
+            background:
+                var(--accent-2);
         }
-
 
         .seal {
             position: absolute;
 
             left: 50%;
-            top: 87px;
-
-            transform: translateX(-50%);
+            top: 84px;
 
             z-index: 4;
 
-            width: 50px;
-            height: 50px;
+            transform: translateX(-50%);
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
 
             border-radius: 50%;
 
             color: #fff;
 
-            font-family:
-                Georgia,
-                serif;
-
             background:
-                linear-gradient(
-                    145deg,
-                    #9d5b63,
-                    #743a46
-                );
+                var(--line);
 
             box-shadow:
-                0 8px 18px rgba(0,0,0,.22);
+                0 7px 16px
+                rgba(0,0,0,.18);
         }
-
 
         .letter-hint {
-            color: var(--white-muted);
+            color: var(--text-muted);
 
-            font-size: .84rem;
+            font-size: .83rem;
         }
 
 
-        /* ==========================================================
-           MODAL CARTA
-        ========================================================== */
+        /* =========================================================
+           MODAL
+        ========================================================= */
 
         .letter-modal {
             position: fixed;
@@ -1651,180 +1734,130 @@
             align-items: center;
             justify-content: center;
 
-            padding: 24px;
+            padding: 23px;
 
             opacity: 0;
             visibility: hidden;
 
             background:
-                rgba(3,10,8,.82);
+                rgba(0,0,0,.66);
 
-            backdrop-filter:
-                blur(16px);
-
-            transition: .4s ease;
+            transition:
+                opacity .25s ease,
+                visibility .25s ease;
         }
-
 
         .letter-modal.show {
             opacity: 1;
             visibility: visible;
         }
 
-
         .paper {
             position: relative;
 
-            width:
-                min(700px, 100%);
+            width: min(690px, 100%);
 
             max-height: 86vh;
 
             overflow-y: auto;
 
             padding:
-                57px 57px 52px;
-
-            color: #47373a;
+                55px 55px 48px;
 
             border-radius: 9px;
 
+            color: #4d3b41;
+
             background:
-                linear-gradient(
-                    135deg,
-                    #fffaf1,
-                    #f6ecde
-                );
+                var(--paper);
 
             box-shadow:
-                0 45px 130px
-                rgba(0,0,0,.48);
+                0 35px 100px
+                rgba(0,0,0,.38);
 
             transform:
-                translateY(30px)
-                scale(.95);
+                translateY(18px)
+                scale(.97);
 
             transition:
-                transform .5s ease;
+                transform .3s ease;
         }
-
 
         .letter-modal.show
         .paper {
-            transform:
-                translateY(0)
-                scale(1);
+            transform: none;
         }
-
-
-        .paper::before {
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            opacity: .16;
-
-            pointer-events: none;
-
-            background-image:
-                repeating-linear-gradient(
-                    transparent 0,
-                    transparent 31px,
-                    rgba(100,80,70,.12) 32px
-                );
-        }
-
 
         .close-letter {
             position: absolute;
 
-            top: 15px;
-            right: 16px;
+            right: 15px;
+            top: 14px;
 
-            z-index: 5;
-
-            width: 36px;
-            height: 36px;
+            width: 35px;
+            height: 35px;
 
             border: none;
+
             border-radius: 50%;
 
             cursor: pointer;
 
-            color: #624e52;
+            color: #5f4b51;
 
             background:
-                rgba(80,60,60,.08);
+                rgba(60,40,45,.07);
         }
 
-
         .paper-date {
-            position: relative;
-
-            margin-bottom: 28px;
-
-            color: #927c70;
+            margin-bottom: 27px;
 
             text-align: right;
 
-            font-size: .8rem;
+            color: #958087;
+
+            font-size: .79rem;
         }
 
-
         .paper h2 {
-            position: relative;
+            margin-bottom: 24px;
 
-            margin-bottom: 26px;
+            font-family: Georgia, serif;
 
-            font-family:
-                Georgia,
-                serif;
-
-            font-size: 2.2rem;
+            font-size: 2.05rem;
 
             font-weight: 400;
         }
 
-
         .letter-text {
-            position: relative;
+            font-family: Georgia, serif;
 
-            font-family:
-                Georgia,
-                serif;
+            font-size: 1rem;
 
-            font-size: 1.02rem;
-
-            line-height: 2;
+            line-height: 1.95;
         }
 
-
         .letter-signature {
-            position: relative;
-
-            margin-top: 38px;
+            margin-top: 35px;
 
             text-align: right;
 
-            color: #85545c;
+            color: #985f70;
 
             font-family:
                 "Segoe Script",
-                "Comic Sans MS",
                 cursive;
 
-            font-size: 1.22rem;
+            font-size: 1.17rem;
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            FINAL
-        ========================================================== */
+        ========================================================= */
 
         .final-section {
-            min-height: 92vh;
+            min-height: 90vh;
 
             display: flex;
             align-items: center;
@@ -1833,17 +1866,14 @@
             text-align: center;
         }
 
-
         .final-content {
-            width:
-                min(730px, 100%);
+            width: min(730px, 100%);
         }
 
+        .final-small {
+            margin-bottom: 19px;
 
-        .final-eyebrow {
-            margin-bottom: 20px;
-
-            color: var(--gold);
+            color: var(--special);
 
             font-size: .7rem;
 
@@ -1852,16 +1882,13 @@
             text-transform: uppercase;
         }
 
-
         .final-title {
-            margin-bottom: 30px;
+            margin-bottom: 28px;
 
-            font-family:
-                Georgia,
-                serif;
+            font-family: Georgia, serif;
 
             font-size:
-                clamp(3rem, 10vw, 7rem);
+                clamp(3rem, 10vw, 6.8rem);
 
             font-weight: 400;
 
@@ -1870,83 +1897,63 @@
             letter-spacing: -3px;
         }
 
-
         .final-title span {
-            color: transparent;
-
-            background:
-                linear-gradient(
-                    120deg,
-                    var(--champagne),
-                    var(--rose-soft)
-                );
-
-            -webkit-background-clip: text;
-            background-clip: text;
+            color: var(--accent-2);
         }
 
-
         .final-copy {
-            width:
-                min(560px, 100%);
+            width: min(560px, 100%);
 
             margin:
-                0 auto 40px;
+                0 auto 38px;
 
-            color: var(--white-soft);
+            color: var(--text-soft);
 
             line-height: 1.9;
         }
-
 
         .secret-message {
             max-height: 0;
 
             overflow: hidden;
 
-            margin-top: 30px;
+            margin-top: 28px;
 
             opacity: 0;
 
             transition:
-                max-height .8s ease,
-                opacity .8s ease;
+                max-height .5s ease,
+                opacity .5s ease;
         }
 
-
         .secret-message.show {
-            max-height: 400px;
-
+            max-height: 300px;
             opacity: 1;
         }
 
-
         .secret-message p {
-            color: var(--champagne);
+            color: var(--accent-2);
 
-            font-family:
-                Georgia,
-                serif;
+            font-family: Georgia, serif;
 
             font-size:
-                clamp(1.4rem, 4vw, 2.2rem);
+                clamp(1.35rem, 4vw, 2rem);
 
             line-height: 1.55;
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            FOOTER
-        ========================================================== */
+        ========================================================= */
 
         footer {
             padding:
-                30px 20px 48px;
+                30px 20px 45px;
 
             text-align: center;
 
-            color:
-                rgba(255,248,238,.33);
+            color: var(--text-muted);
 
             font-size: .74rem;
 
@@ -1954,11 +1961,13 @@
         }
 
 
-        /* ==========================================================
-           CORAZONES / PARTÍCULAS
-        ========================================================== */
+        /* =========================================================
+           PARTÍCULAS
 
-        .floating-particle {
+           Se crean solo al hacer clic.
+        ========================================================= */
+
+        .particle {
             position: fixed;
 
             z-index: 99999;
@@ -1968,122 +1977,98 @@
             font-size: var(--size);
 
             animation:
-                particleFly
-                var(--duration)
-                ease-out forwards;
+                flyParticle
+                .95s ease-out forwards;
         }
 
+        @keyframes flyParticle {
 
-        @keyframes particleFly {
-
-            0% {
-                opacity: 0;
+            from {
+                opacity: 1;
 
                 transform:
                     translate(0,0)
-                    scale(.45)
-                    rotate(0);
+                    scale(.6);
             }
 
-            15% {
-                opacity: 1;
-            }
-
-            100% {
+            to {
                 opacity: 0;
 
                 transform:
                     translate(
-                        var(--move-x),
-                        -220px
+                        var(--x),
+                        var(--y)
                     )
-                    scale(1.25)
-                    rotate(var(--rotation));
+                    scale(1.1);
             }
 
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            REVEAL
-        ========================================================== */
+
+           Solo se ejecuta una vez.
+        ========================================================= */
 
         .reveal {
             opacity: 0;
 
             transform:
-                translateY(35px);
+                translateY(22px);
 
             transition:
-                opacity .9s ease,
-                transform .9s ease;
+                opacity .55s ease,
+                transform .55s ease;
         }
-
 
         .reveal.visible {
             opacity: 1;
-
-            transform:
-                translateY(0);
+            transform: none;
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            SCROLLBAR
-        ========================================================== */
+        ========================================================= */
 
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 7px;
         }
-
 
         ::-webkit-scrollbar-track {
-            background: #061411;
+            background: var(--bg-1);
         }
-
 
         ::-webkit-scrollbar-thumb {
             border-radius: 10px;
 
-            background:
-                linear-gradient(
-                    var(--green-soft),
-                    var(--rose)
-                );
+            background: var(--accent);
         }
 
 
-        /* ==========================================================
+        /* =========================================================
            RESPONSIVE
-        ========================================================== */
+        ========================================================= */
 
         @media(max-width: 800px) {
 
             .nav {
-                top: 10px;
+                top: 9px;
             }
-
 
             .nav-links {
                 display: none;
             }
-
-
-            .hero h1 {
-                letter-spacing: -2px;
-            }
-
 
             .gallery-grid {
                 grid-template-columns:
                     repeat(2, 1fr);
             }
 
-
             .timeline::before {
-                left: 10px;
+                left: 9px;
             }
-
 
             .timeline-item,
             .timeline-item:nth-child(even) {
@@ -2093,9 +2078,8 @@
 
                 padding:
                     0 0
-                    45px 38px;
+                    42px 36px;
             }
-
 
             .timeline-dot,
             .timeline-item:nth-child(even)
@@ -2103,7 +2087,7 @@
                 left: 3px;
                 right: auto;
 
-                top: 18px;
+                top: 17px;
             }
 
         }
@@ -2113,80 +2097,78 @@
 
             section {
                 padding:
-                    88px 18px;
+                    82px 17px;
             }
 
+            .nav {
+                padding-left: 14px;
+            }
+
+            .nav-brand {
+                font-size: .87rem;
+            }
 
             .hero {
-                padding-top: 130px;
+                padding-top: 120px;
             }
 
+            .hero h1 {
+                letter-spacing: -2px;
+            }
 
             .countdown {
                 grid-template-columns:
                     repeat(2, 1fr);
             }
 
-
             .gallery-grid {
-                width:
-                    min(330px, 92%);
+                width: min(330px, 92%);
 
                 grid-template-columns: 1fr;
             }
 
-
-            .polaroid {
-                margin-bottom: 8px;
-            }
-
-
-            .reason-card {
-                min-height: 330px;
-
-                padding:
-                    35px 23px;
-            }
-
-
             .paper {
                 padding:
-                    50px 25px
-                    40px;
+                    48px 23px
+                    38px;
             }
-
 
             .paper h2 {
-                font-size: 1.8rem;
+                font-size: 1.75rem;
             }
-
 
             .letter-text {
-                font-size: .96rem;
+                font-size: .95rem;
             }
 
+            .reason-card {
+                min-height: 305px;
 
-            .intro h1 {
-                font-size: 3rem;
+                padding:
+                    34px 22px;
             }
 
+            .theme-menu {
+                position: fixed;
 
-            .heart-stage {
-                height: 95px;
-            }
+                top: 65px;
+                right: 12px;
 
+                width:
+                    calc(100vw - 24px);
 
-            .hero-heart {
-                width: 70px;
-                height: 70px;
+                max-width: 330px;
             }
 
         }
 
 
+        /* =========================================================
+           ACCESIBILIDAD
+        ========================================================= */
+
         @media(
-            prefers-reduced-motion:
-            reduce
+            prefers-reduced-motion: reduce
         ) {
 
             *,
@@ -2211,26 +2193,22 @@
 </head>
 
 
-<body class="no-scroll">
+<body
+    class="no-scroll"
+    data-theme="romance"
+>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          FONDO
-    ============================================================= -->
+    ========================================================== -->
 
-    <canvas id="stars"></canvas>
-
-    <div
-        class="ambient-light"
-        id="ambientLight"
-    ></div>
-
-    <div class="background-grain"></div>
+    <div class="star-field"></div>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          INTRO
-    ============================================================= -->
+    ========================================================== -->
 
     <div
         class="intro"
@@ -2242,7 +2220,7 @@
 
             <div class="intro-date">
 
-                <span></span>
+                <div class="intro-date-dot"></div>
 
                 29 · 09 · 2026
 
@@ -2252,11 +2230,12 @@
             <h1>
 
                 Esto es para
+
                 <br>
 
-                <em>
+                <span>
                     usted, mi amor.
-                </em>
+                </span>
 
             </h1>
 
@@ -2264,29 +2243,23 @@
             <p>
 
                 Quería darle algo diferente por nuestros
-                tres meses. Algo pequeño, pero hecho con
-                muchísimo cariño y pensando en usted.
+                tres meses. Algo hecho con calma,
+                con cariño y pensando especialmente
+                en usted, Mel.
 
             </p>
 
 
             <button
-                class="main-button"
+                class="primary-button"
                 id="openPage"
             >
 
                 Abrir su regalo
 
-                <span>
-                    ♡
-                </span>
+                <span>♡</span>
 
             </button>
-
-
-            <div class="intro-heart">
-                ♡
-            </div>
 
 
         </div>
@@ -2294,16 +2267,14 @@
     </div>
 
 
-    <!-- ============================================================
-         MÚSICA
-
-         Coloque "cancion.mp3" junto al index.html
-    ============================================================= -->
+    <!-- =========================================================
+         MÚSICA OPCIONAL
+    ========================================================== -->
 
     <audio
         id="backgroundMusic"
         loop
-        preload="auto"
+        preload="none"
     >
 
         <source
@@ -2314,9 +2285,9 @@
     </audio>
 
 
-    <!-- ============================================================
-         NAV
-    ============================================================= -->
+    <!-- =========================================================
+         NAVEGACIÓN
+    ========================================================== -->
 
     <nav class="nav">
 
@@ -2349,22 +2320,178 @@
         </div>
 
 
-        <button
-            class="music-button"
-            id="musicButton"
-            title="Reproducir música"
-            aria-label="Reproducir música"
-        >
-            ♪
-        </button>
+        <div class="nav-actions">
+
+
+            <!-- SELECTOR DE COLOR -->
+
+            <div class="theme-wrapper">
+
+
+                <button
+                    class="nav-icon-button"
+                    id="themeButton"
+                    title="Cambiar colores"
+                    aria-label="Cambiar colores"
+                >
+                    🎨
+                </button>
+
+
+                <div
+                    class="theme-menu"
+                    id="themeMenu"
+                >
+
+
+                    <div class="theme-title">
+
+                        Elegir colores
+
+                    </div>
+
+
+                    <button
+                        class="theme-option active"
+                        data-theme-value="romance"
+                    >
+
+                        <span
+                            class="
+                                theme-preview
+                                preview-romance
+                            "
+                        ></span>
+
+                        <span>
+                            Romance nocturno
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="theme-option"
+                        data-theme-value="lavanda"
+                    >
+
+                        <span
+                            class="
+                                theme-preview
+                                preview-lavanda
+                            "
+                        ></span>
+
+                        <span>
+                            Lavanda
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="theme-option"
+                        data-theme-value="noche"
+                    >
+
+                        <span
+                            class="
+                                theme-preview
+                                preview-noche
+                            "
+                        ></span>
+
+                        <span>
+                            Azul noche
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="theme-option"
+                        data-theme-value="salvia"
+                    >
+
+                        <span
+                            class="
+                                theme-preview
+                                preview-salvia
+                            "
+                        ></span>
+
+                        <span>
+                            Salvia
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="theme-option"
+                        data-theme-value="borgona"
+                    >
+
+                        <span
+                            class="
+                                theme-preview
+                                preview-borgona
+                            "
+                        ></span>
+
+                        <span>
+                            Borgoña
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="theme-option"
+                        data-theme-value="claro"
+                    >
+
+                        <span
+                            class="
+                                theme-preview
+                                preview-claro
+                            "
+                        ></span>
+
+                        <span>
+                            Rosé claro
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- MÚSICA -->
+
+            <button
+                class="nav-icon-button"
+                id="musicButton"
+                title="Música"
+                aria-label="Música"
+            >
+                ♪
+            </button>
+
+
+        </div>
 
 
     </nav>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          HERO
-    ============================================================= -->
+    ========================================================== -->
 
     <section class="hero">
 
@@ -2381,9 +2508,9 @@
             </div>
 
 
-            <!-- CORAZÓN SVG BIEN FORMADO -->
+            <!-- CORAZÓN -->
 
-            <div class="heart-stage">
+            <div class="heart-area">
 
 
                 <button
@@ -2394,40 +2521,10 @@
 
 
                     <svg
-                        class="hero-heart"
+                        class="heart-svg"
                         viewBox="0 0 100 92"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-
-
-                        <defs>
-
-                            <linearGradient
-                                id="heartGradient"
-                                x1="0"
-                                y1="0"
-                                x2="1"
-                                y2="1"
-                            >
-
-                                <stop
-                                    offset="0%"
-                                    stop-color="#f1c6c9"
-                                />
-
-                                <stop
-                                    offset="50%"
-                                    stop-color="#d8a0a7"
-                                />
-
-                                <stop
-                                    offset="100%"
-                                    stop-color="#c8aa73"
-                                />
-
-                            </linearGradient>
-
-                        </defs>
 
 
                         <path
@@ -2443,7 +2540,7 @@
                                 Z
                             "
 
-                            fill="url(#heartGradient)"
+                            fill="var(--accent)"
 
                         />
 
@@ -2457,7 +2554,7 @@
 
                             fill="none"
 
-                            stroke="rgba(255,255,255,.40)"
+                            stroke="rgba(255,255,255,.38)"
 
                             stroke-width="3"
 
@@ -2477,8 +2574,10 @@
 
             <h1>
 
-                <span class="gradient">
+                <span class="gradient-text">
+
                     3 meses
+
                 </span>
 
                 <br>
@@ -2490,14 +2589,16 @@
 
             <p class="hero-subtitle">
 
-                Mel, no sé cómo explicarle exactamente
-                cuánto me gusta compartir mis días con usted.
+                Mel, estos tres meses han tenido
+                conversaciones, sonrisas, cariño
+                y muchos pequeños momentos
+                que para mí significan muchísimo.
 
                 <br><br>
 
-                Solo sé que estos tres meses han sido
-                mucho más bonitos porque usted ha estado
-                en ellos, mi amor.
+                Y mi parte favorita de todos ellos
+                ha sido compartirlos con usted,
+                mi amor.
 
             </p>
 
@@ -2583,9 +2684,9 @@
     </section>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          TRES MESES
-    ============================================================= -->
+    ========================================================== -->
 
     <section
         class="three-section reveal"
@@ -2596,15 +2697,17 @@
         <div class="container">
 
 
-            <div class="three-content-wrapper">
+            <div class="three-wrapper">
 
 
                 <div class="big-three">
+
                     3
+
                 </div>
 
 
-                <div class="three-copy">
+                <div class="three-content">
 
 
                     <div class="section-label">
@@ -2616,35 +2719,40 @@
 
                     <h2>
 
-                        Tres meses pueden
-                        parecer poco.
+                        Parece poco.
 
                         <br>
 
                         Pero con usted
-                        han significado mucho.
+                        se siente enorme.
 
                     </h2>
 
 
                     <p>
 
-                        Han sido tres meses de conocerla más,
-                        de descubrir pequeños detalles suyos,
-                        de compartir conversaciones,
-                        risas y momentos que poco a poco
-                        se han vuelto importantes para mí.
+                        Han sido tres meses de conocerla
+                        un poquito más, de descubrir
+                        sus maneras, sus detalles,
+                        sus ocurrencias y todo eso
+                        que hace que usted sea usted.
 
                         <br><br>
 
-                        Me gusta lo que hemos construido.
+                        Me gusta lo que hemos ido construyendo.
 
-                        Me gusta cómo me siento con usted.
+                        Me gusta poder compartir
+                        mis días con usted.
 
-                        Y sobre todo,
+                        <br><br>
+
+                        Y entre todas esas cosas,
 
                         <strong>
-                            me gusta que sea precisamente usted.
+
+                            me encanta que sea
+                            precisamente usted, Mel.
+
                         </strong>
 
                     </p>
@@ -2662,9 +2770,9 @@
     </section>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          HISTORIA
-    ============================================================= -->
+    ========================================================== -->
 
     <section class="reveal">
 
@@ -2688,19 +2796,16 @@
 
             <p class="section-description">
 
-                Quizá el calendario solamente vea fechas.
-
-                Yo veo momentos, conversaciones,
-                aprendizajes y muchas cosas bonitas
-                que hemos ido compartiendo.
+                No quiero contar lo nuestro solamente
+                en días. También quiero contarlo
+                en todos esos pequeños momentos
+                que hemos ido guardando.
 
             </p>
 
 
             <div class="timeline">
 
-
-                <!-- INICIO -->
 
                 <div class="timeline-item">
 
@@ -2720,16 +2825,19 @@
 
                         <h3>
 
-                            Aquí empezó lo nuestro
+                            Donde comenzó lo nuestro
 
                         </h3>
 
 
                         <p>
 
-                            El comienzo oficial de esta historia.
-                            En ese momento todavía no sabía cuánto
-                            iba a disfrutar tenerla en mi vida.
+                            El día que oficialmente
+                            comenzó esta historia.
+
+                            Todavía no sabíamos
+                            todas las cosas bonitas
+                            que iban a venir después.
 
                         </p>
 
@@ -2739,8 +2847,6 @@
 
                 </div>
 
-
-                <!-- MES 1 -->
 
                 <div class="timeline-item">
 
@@ -2767,10 +2873,10 @@
 
                         <p>
 
-                            Un mes conociéndonos un poquito más,
-                            aprendiendo nuestras formas de ser
-                            y comenzando a crear recuerdos
-                            de usted y yo.
+                            Conociéndonos un poquito más,
+                            descubriendo nuestras formas
+                            de ser y creando los primeros
+                            recuerdos de usted y yo.
 
                         </p>
 
@@ -2780,8 +2886,6 @@
 
                 </div>
 
-
-                <!-- MES 2 -->
 
                 <div class="timeline-item">
 
@@ -2808,10 +2912,11 @@
 
                         <p>
 
-                            Para entonces ya existían más historias,
-                            más confianza, más cariño y esas pequeñas
-                            cosas que hacen que una relación
-                            comience a sentirse nuestra.
+                            Más confianza,
+                            más recuerdos,
+                            más cariño
+                            y muchas pequeñas cosas
+                            que empezaban a sentirse nuestras.
 
                         </p>
 
@@ -2821,8 +2926,6 @@
 
                 </div>
 
-
-                <!-- MES 3 -->
 
                 <div class="timeline-item">
 
@@ -2849,13 +2952,12 @@
 
                         <p>
 
-                            Y aquí estamos.
-
                             Mel y Fer.
 
-                            Celebrando tres meses y todavía
-                            con muchísimas cosas bonitas
-                            por vivir, conocer y recordar.
+                            Tres meses después
+                            y todavía con muchas cosas
+                            que quiero conocer,
+                            vivir y recordar con usted.
 
                         </p>
 
@@ -2875,9 +2977,9 @@
     </section>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          FOTOS
-    ============================================================= -->
+    ========================================================== -->
 
     <section
         class="reveal"
@@ -2890,7 +2992,7 @@
 
             <div class="section-label">
 
-                Recuerdos
+                Nuestros recuerdos
 
             </div>
 
@@ -2904,10 +3006,12 @@
 
             <p class="section-description">
 
-                Algunas fotos son bonitas por cómo se ven.
+                No son solamente fotografías.
 
-                Estas lo son por la persona que está en ellas
-                y por todo lo que me hacen recordar.
+                Cada una guarda un lugar,
+                una conversación,
+                una sonrisa y un momento
+                que pasó exactamente una vez.
 
             </p>
 
@@ -2919,7 +3023,7 @@
 
                 <div
                     class="polaroid"
-                    style="--rotation: -3deg;"
+                    style="--rotation:-2.5deg"
                 >
 
 
@@ -2932,6 +3036,10 @@
 
                             alt="Mel y Fer"
 
+                            loading="lazy"
+
+                            decoding="async"
+
                             onerror="
                                 this.style.display='none';
                                 this.nextElementSibling.style.display='flex';
@@ -2942,8 +3050,8 @@
 
                         <div class="photo-placeholder">
 
-                            Aquí va una de
-                            nuestras fotos ♡
+                            Aquí va una foto
+                            de usted y yo ♡
 
                         </div>
 
@@ -2965,7 +3073,7 @@
 
                 <div
                     class="polaroid"
-                    style="--rotation: 2deg;"
+                    style="--rotation:1.7deg"
                 >
 
 
@@ -2977,6 +3085,10 @@
                             src="img/foto2.jpg"
 
                             alt="Mel y Fer"
+
+                            loading="lazy"
+
+                            decoding="async"
 
                             onerror="
                                 this.style.display='none';
@@ -3011,7 +3123,7 @@
 
                 <div
                     class="polaroid"
-                    style="--rotation: -1.5deg;"
+                    style="--rotation:-1deg"
                 >
 
 
@@ -3024,6 +3136,10 @@
 
                             alt="Mel y Fer"
 
+                            loading="lazy"
+
+                            decoding="async"
+
                             onerror="
                                 this.style.display='none';
                                 this.nextElementSibling.style.display='flex';
@@ -3034,8 +3150,8 @@
 
                         <div class="photo-placeholder">
 
-                            Otra fotito
-                            de Mel y Fer ♡
+                            Otro pedacito
+                            de nuestra historia ♡
 
                         </div>
 
@@ -3062,9 +3178,9 @@
     </section>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          FRASE
-    ============================================================= -->
+    ========================================================== -->
 
     <section class="quote-section reveal">
 
@@ -3073,14 +3189,16 @@
 
 
             <div class="quote-mark">
+
                 “
+
             </div>
 
 
             <p>
 
-                De todas las casualidades bonitas
-                que podían pasarme,
+                De todas las casualidades
+                bonitas que podían pasarme,
 
                 me alegra muchísimo
                 haber coincidido con usted.
@@ -3094,9 +3212,9 @@
     </section>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          RAZONES
-    ============================================================= -->
+    ========================================================== -->
 
     <section
         class="reveal"
@@ -3123,10 +3241,10 @@
 
             <p class="section-description">
 
-                Podría escribir muchas más.
+                En realidad podría escribir muchas más.
 
-                Pero estas son algunas de las cosas
-                que hacen que usted sea tan especial para mí.
+                Pero estas son algunas
+                de mis favoritas.
 
             </p>
 
@@ -3141,15 +3259,18 @@
                         class="reason-number"
                         id="reasonNumber"
                     >
+
                         Razón 01 de 08
+
                     </div>
 
 
                     <div id="reasonText">
 
                         Su sonrisa.
-                        Porque cuando sonríe tiene una manera
-                        muy bonita de alegrarme también a mí.
+                        Porque verla sonreír
+                        siempre termina provocándome
+                        una sonrisa a mí también.
 
                     </div>
 
@@ -3161,20 +3282,22 @@
 
 
                     <button
-                        class="reason-button"
+                        class="round-button"
                         id="prevReason"
-                        aria-label="Razón anterior"
                     >
+
                         ←
+
                     </button>
 
 
                     <button
-                        class="reason-button"
+                        class="round-button"
                         id="nextReason"
-                        aria-label="Razón siguiente"
                     >
+
                         →
+
                     </button>
 
 
@@ -3196,9 +3319,9 @@
     </section>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          CARTA
-    ============================================================= -->
+    ========================================================== -->
 
     <section
         class="letter-section reveal"
@@ -3225,8 +3348,9 @@
 
             <p class="section-description">
 
-                Porque hay cosas que no quería dejar
-                solamente en una frase.
+                Porque algunas cosas
+                merecen decirse con un poquito
+                más de calma.
 
             </p>
 
@@ -3242,7 +3366,9 @@
                 <div class="envelope-flap"></div>
 
                 <div class="seal">
+
                     ♡
+
                 </div>
 
 
@@ -3262,9 +3388,9 @@
     </section>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          FINAL
-    ============================================================= -->
+    ========================================================== -->
 
     <section class="final-section reveal">
 
@@ -3272,7 +3398,7 @@
         <div class="final-content">
 
 
-            <div class="final-eyebrow">
+            <div class="final-small">
 
                 29 · 09 · 2026
 
@@ -3284,8 +3410,10 @@
                 Feliz
 
                 <span>
+
                     3 meses,
                     mi amor.
+
                 </span>
 
             </h2>
@@ -3294,28 +3422,28 @@
             <p class="final-copy">
 
                 Gracias por estos meses,
-                por su cariño, por su forma de ser
-                y por cada pequeño momento que hemos compartido.
+                por su cariño,
+                por sus detalles
+                y por compartir conmigo
+                esta pequeña parte de su vida.
 
                 <br><br>
 
-                Espero que esto le recuerde
-                aunque sea un poquito de todo
-                lo bonita que usted es para mí.
+                Me hace muy feliz
+                poder decir que estos recuerdos
+                son de usted y míos.
 
             </p>
 
 
             <button
-                class="main-button"
+                class="primary-button"
                 id="magicButton"
             >
 
                 Una última cosita
 
-                <span>
-                    ♡
-                </span>
+                <span>♡</span>
 
             </button>
 
@@ -3328,13 +3456,13 @@
 
                 <p>
 
-                    Si pudiera volver al comienzo
-                    sabiendo todo lo que sé hoy...
+                    De todas las versiones
+                    que pudo tener esta historia...
 
                     <br><br>
 
-                    volvería a elegir coincidir
-                    con usted, Mel. ♡
+                    me alegra muchísimo
+                    que la mía tenga a Mel. ♡
 
                 </p>
 
@@ -3348,28 +3476,24 @@
     </section>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          FOOTER
-    ============================================================= -->
+    ========================================================== -->
 
     <footer>
 
-        Hecho con muchísimo cariño para Mel ♡
+        Hecho con mucho cariño para Mel ♡
 
         <br>
 
         De Fer
 
-        <br><br>
-
-        29 · 09 · 2026
-
     </footer>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          MODAL CARTA
-    ============================================================= -->
+    ========================================================== -->
 
     <div
         class="letter-modal"
@@ -3383,9 +3507,10 @@
             <button
                 class="close-letter"
                 id="closeLetter"
-                aria-label="Cerrar carta"
             >
+
                 ✕
+
             </button>
 
 
@@ -3412,81 +3537,97 @@
                 Quería hacerle algo diferente
                 por nuestros tres meses.
 
-                Algo que pudiera guardar un poquito
-                de todo lo que este tiempo
-                ha significado para mí.
+                No solamente algo bonito,
+                sino algo que tuviera un poquito
+                de nosotros dentro.
 
                 <br><br>
 
-                Me gusta muchísimo la persona que usted es.
-
-                Me gusta su sonrisa,
-                sus ojitos y esa ternura
-                que tiene en tantas cosas.
+                En estos meses he podido conocer
+                muchas cosas de usted que me encantan.
 
                 <br><br>
 
-                Admiro lo leal que es,
-                lo inteligente que es
-                y esa forma tan bonita que tiene
-                de cuidar a las personas que quiere.
+                Me encanta su sonrisa.
+
+                Me encantan sus ojitos
+                y esa manera que tienen
+                de hacer que quiera quedarme
+                viéndola un poquito más.
 
                 <br><br>
 
-                Me encanta también lo hogareña que es.
+                Admiro lo leal que es.
 
-                Esa manera suya de transmitir calma,
-                cariño y una sensación bonita
-                de estar donde uno quiere estar.
+                Lo inteligente que es.
 
-                <br><br>
+                Lo tierna que puede ser.
 
-                Y me gusta cómo me trata.
-
-                Lo amorosa que puede ser conmigo,
-                los detalles que tiene
-                y todas esas cosas pequeñas
-                que quizá usted no nota,
-                pero que yo sí recuerdo.
+                Y esa manera tan amorosa
+                que tiene de tratar
+                a las personas que quiere.
 
                 <br><br>
 
-                Estos tres meses no tienen que haber sido
-                perfectos para ser especiales.
+                También me gusta mucho
+                lo hogareña que es.
 
-                Para mí lo especial ha sido
-                conocerla más,
-                compartir con usted
-                y ver cómo poco a poco
-                hemos ido construyendo algo nuestro.
+                Esa parte de usted
+                que transmite tranquilidad,
+                cariño y una sensación
+                muy bonita de hogar.
 
                 <br><br>
 
-                Gracias por cada conversación.
+                Hay muchas pequeñas cosas
+                que probablemente usted hace
+                sin darse cuenta,
 
-                Gracias por cada sonrisa.
+                pero que yo sí noto.
+
+                <br><br>
+
+                Y creo que precisamente
+                ahí está una de las cosas
+                más bonitas de conocerla:
+
+                seguir descubriendo
+                nuevos detalles suyos.
+
+                <br><br>
+
+                Estos tres meses
+                quizá apenas sean
+                el comienzo de nuestra historia,
+
+                pero ya me han dejado
+                recuerdos que quiero guardar.
+
+                <br><br>
 
                 Gracias por su cariño.
 
-                Y gracias por permitirme
-                compartir esta parte de mi vida con usted.
+                Gracias por cada conversación.
+
+                Gracias por cada momento bonito.
 
                 <br><br>
 
-                Feliz 3 meses, mi amor.
+                Y principalmente,
 
-                Espero que todavía nos queden
-                muchísimos momentos bonitos
-                que un día podamos recordar
-                con la misma sonrisa con la que
-                hoy recuerdo estos primeros meses.
+                gracias por ser usted,
+                mi amor.
+
+                <br><br>
+
+                Feliz tres meses. ♡
 
             </div>
 
 
             <div class="letter-signature">
 
-                Con muchísimo cariño,
+                Con mucho cariño,
 
                 <br>
 
@@ -3501,19 +3642,17 @@
     </div>
 
 
-    <!-- ============================================================
+    <!-- =========================================================
          JAVASCRIPT
-    ============================================================= -->
+    ========================================================== -->
 
     <script>
 
-
-        /* ==========================================================
+        /* =========================================================
            CONFIGURACIÓN
         ========================================================== */
 
         const CONFIG = {
-
 
             aniversario:
                 new Date(
@@ -3525,151 +3664,139 @@
                     0
                 ),
 
-
             razones: [
 
-
                 `Su sonrisa.
-                Porque cuando sonríe tiene una manera
-                muy bonita de alegrarme también a mí.`,
-
+                Porque verla sonreír
+                siempre termina provocándome
+                una sonrisa a mí también.`,
 
                 `Sus ojitos.
-                Porque tienen algo tan bonito
-                que podría quedarme viéndolos
-                mucho más tiempo del que admitiría.`,
-
+                Porque tienen algo muy bonito
+                y son de esas cosas de usted
+                que podría quedarme viendo
+                durante mucho tiempo.`,
 
                 `Lo leal que es.
                 Para mí la lealtad vale muchísimo,
-                y es una de esas cosas de usted
-                que realmente admiro.`,
-
+                y es una de las cualidades suyas
+                que más admiro.`,
 
                 `Lo tierna que es.
                 Esa ternura que aparece
-                en sus palabras, en sus detalles
-                y en tantas pequeñas cosas que hace.`,
-
+                en sus palabras, sus detalles
+                y en muchas pequeñas cosas
+                que usted hace.`,
 
                 `Lo inteligente que es.
-                Me gusta escucharla,
-                conocer su forma de pensar
-                y seguir descubriendo todo
-                lo que hay dentro de esa cabecita suya.`,
-
+                Me encanta escuchar su manera
+                de pensar y descubrir todo
+                lo que hay dentro
+                de esa cabecita suya.`,
 
                 `Lo hogareña que es.
-                Usted tiene una manera especial
-                de hacer que lo sencillo se sienta
-                cálido, tranquilo y bonito.`,
-
+                Tiene una manera muy bonita
+                de hacer que las cosas sencillas
+                se sientan cálidas,
+                tranquilas y especiales.`,
 
                 `Lo amorosa que es.
                 Me encanta sentir su cariño,
-                sus detalles y esa forma tan suya
-                de hacerme sentir querido.`,
+                sus detalles y esa forma
+                tan suya de hacerme sentir querido.`,
 
-
-                `Usted completa.
-                Su manera de ser,
-                sus virtudes, sus ocurrencias
-                y todos esos detalles que hacen
-                que Mel sea simplemente Mel,
-                mi amor.`
-
+                `Y simplemente usted.
+                Su forma de ser,
+                sus ocurrencias,
+                sus virtudes
+                y todos esos pequeños detalles
+                que hacen que Mel sea Mel.`
 
             ]
-
 
         };
 
 
-        /* ==========================================================
-           ELEMENTOS
+        /* =========================================================
+           REFERENCIAS
         ========================================================== */
+
+        const body =
+            document.body;
 
         const intro =
             document.getElementById(
                 "intro"
             );
 
-
         const openPage =
             document.getElementById(
                 "openPage"
             );
 
+        const themeButton =
+            document.getElementById(
+                "themeButton"
+            );
+
+        const themeMenu =
+            document.getElementById(
+                "themeMenu"
+            );
 
         const music =
             document.getElementById(
                 "backgroundMusic"
             );
 
-
         const musicButton =
             document.getElementById(
                 "musicButton"
             );
 
-
-        const mainHeartButton =
+        const heartButton =
             document.getElementById(
                 "mainHeartButton"
             );
-
-
-        const reasonText =
-            document.getElementById(
-                "reasonText"
-            );
-
-
-        const reasonNumber =
-            document.getElementById(
-                "reasonNumber"
-            );
-
-
-        const reasonDots =
-            document.getElementById(
-                "reasonDots"
-            );
-
 
         const envelope =
             document.getElementById(
                 "envelope"
             );
 
-
         const letterModal =
             document.getElementById(
                 "letterModal"
             );
-
 
         const closeLetter =
             document.getElementById(
                 "closeLetter"
             );
 
-
-        const magicButton =
+        const reasonText =
             document.getElementById(
-                "magicButton"
+                "reasonText"
             );
 
+        const reasonNumber =
+            document.getElementById(
+                "reasonNumber"
+            );
+
+        const reasonDots =
+            document.getElementById(
+                "reasonDots"
+            );
 
         const secretMessage =
             document.getElementById(
                 "secretMessage"
             );
 
-
-        const ambientLight =
+        const magicButton =
             document.getElementById(
-                "ambientLight"
+                "magicButton"
             );
 
 
@@ -3678,7 +3805,7 @@
         let musicPlaying = false;
 
 
-        /* ==========================================================
+        /* =========================================================
            INTRO
         ========================================================== */
 
@@ -3686,46 +3813,155 @@
             "click",
             () => {
 
-
                 intro.classList.add(
                     "hide"
                 );
 
-
-                document.body.classList.remove(
+                body.classList.remove(
                     "no-scroll"
                 );
 
-
-                createParticleBurst(
-
+                createParticles(
                     window.innerWidth / 2,
-
                     window.innerHeight / 2,
-
-                    18
-
+                    9
                 );
-
 
             }
         );
 
 
-        /* ==========================================================
+        /* =========================================================
+           PALETAS
+        ========================================================== */
+
+        const themeOptions =
+            document.querySelectorAll(
+                ".theme-option"
+            );
+
+
+        function applyTheme(
+            themeName
+        ) {
+
+            body.dataset.theme =
+                themeName;
+
+
+            localStorage.setItem(
+                "mel-fer-theme",
+                themeName
+            );
+
+
+            themeOptions.forEach(
+                option => {
+
+                    option.classList.toggle(
+
+                        "active",
+
+                        option.dataset.themeValue
+                        ===
+                        themeName
+
+                    );
+
+                }
+            );
+
+
+            themeMenu.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        const storedTheme =
+            localStorage.getItem(
+                "mel-fer-theme"
+            );
+
+
+        if (storedTheme) {
+
+            applyTheme(
+                storedTheme
+            );
+
+        }
+
+
+        themeButton.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                themeMenu.classList.toggle(
+                    "show"
+                );
+
+            }
+        );
+
+
+        themeMenu.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+            }
+        );
+
+
+        themeOptions.forEach(
+            option => {
+
+                option.addEventListener(
+                    "click",
+                    () => {
+
+                        applyTheme(
+                            option.dataset.themeValue
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        document.addEventListener(
+            "click",
+            () => {
+
+                themeMenu.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+
+        /* =========================================================
            CONTADOR
         ========================================================== */
 
         function updateCountdown() {
 
-
             const now =
-                new Date();
+                Date.now();
 
+            const destination =
+                CONFIG.aniversario.getTime();
 
             const distance =
-                CONFIG.aniversario - now;
-
+                destination - now;
 
             const message =
                 document.getElementById(
@@ -3733,23 +3969,21 @@
                 );
 
 
-            if (distance <= 0) {
-
+            if (
+                distance <= 0
+            ) {
 
                 document.getElementById(
                     "days"
                 ).textContent = "♡";
 
-
                 document.getElementById(
                     "hours"
                 ).textContent = "♡";
 
-
                 document.getElementById(
                     "minutes"
                 ).textContent = "♡";
-
 
                 document.getElementById(
                     "seconds"
@@ -3765,85 +3999,43 @@
             }
 
 
+            const day =
+                1000 * 60 * 60 * 24;
+
+            const hour =
+                1000 * 60 * 60;
+
+            const minute =
+                1000 * 60;
+
+
             const days =
                 Math.floor(
-
-                    distance /
-
-                    (
-                        1000 *
-                        60 *
-                        60 *
-                        24
-                    )
-
+                    distance / day
                 );
 
 
             const hours =
                 Math.floor(
-
-                    (
-                        distance %
-
-                        (
-                            1000 *
-                            60 *
-                            60 *
-                            24
-                        )
-                    )
-
+                    (distance % day)
                     /
-
-                    (
-                        1000 *
-                        60 *
-                        60
-                    )
-
+                    hour
                 );
 
 
             const minutes =
                 Math.floor(
-
-                    (
-                        distance %
-
-                        (
-                            1000 *
-                            60 *
-                            60
-                        )
-                    )
-
+                    (distance % hour)
                     /
-
-                    (
-                        1000 *
-                        60
-                    )
-
+                    minute
                 );
 
 
             const seconds =
                 Math.floor(
-
-                    (
-                        distance %
-
-                        (
-                            1000 *
-                            60
-                        )
-                    )
-
+                    (distance % minute)
                     /
-
                     1000
-
                 );
 
 
@@ -3851,33 +4043,32 @@
                 "days"
             ).textContent =
                 String(days)
-                    .padStart(2, "0");
+                .padStart(2, "0");
 
 
             document.getElementById(
                 "hours"
             ).textContent =
                 String(hours)
-                    .padStart(2, "0");
+                .padStart(2, "0");
 
 
             document.getElementById(
                 "minutes"
             ).textContent =
                 String(minutes)
-                    .padStart(2, "0");
+                .padStart(2, "0");
 
 
             document.getElementById(
                 "seconds"
             ).textContent =
                 String(seconds)
-                    .padStart(2, "0");
+                .padStart(2, "0");
 
 
             message.textContent =
                 "para nuestro 29 ♡";
-
 
         }
 
@@ -3891,19 +4082,18 @@
         );
 
 
-        /* ==========================================================
+        /* =========================================================
            RAZONES
         ========================================================== */
 
-        function createReasonDots() {
+        function createDots() {
 
-
-            reasonDots.innerHTML = "";
+            const fragment =
+                document.createDocumentFragment();
 
 
             CONFIG.razones.forEach(
                 (_, index) => {
-
 
                     const dot =
                         document.createElement(
@@ -3915,7 +4105,9 @@
                         "reason-dot";
 
 
-                    if (index === 0) {
+                    if (
+                        index === 0
+                    ) {
 
                         dot.classList.add(
                             "active"
@@ -3924,66 +4116,67 @@
                     }
 
 
-                    reasonDots.appendChild(
+                    fragment.appendChild(
                         dot
                     );
 
-
                 }
             );
 
 
+            reasonDots.appendChild(
+                fragment
+            );
+
         }
 
 
-        function updateReasonDots() {
-
+        function updateDots() {
 
             const dots =
-                reasonDots.querySelectorAll(
-                    ".reason-dot"
-                );
+                reasonDots.children;
 
 
-            dots.forEach(
-                (dot, index) => {
+            for (
+                let index = 0;
+                index < dots.length;
+                index++
+            ) {
 
-
-                    dot.classList.toggle(
+                dots[index]
+                    .classList
+                    .toggle(
 
                         "active",
 
-                        index === currentReason
+                        index ===
+                        currentReason
 
                     );
 
-
-                }
-            );
-
+            }
 
         }
 
 
-        function showReason(index) {
-
+        function showReason(
+            newIndex
+        ) {
 
             reasonText.style.opacity =
                 "0";
 
-
             reasonText.style.transform =
-                "translateY(9px)";
+                "translateY(5px)";
 
 
             setTimeout(
                 () => {
 
-
                     currentReason =
 
                         (
-                            index +
+                            newIndex +
                             CONFIG.razones.length
                         )
 
@@ -4019,21 +4212,18 @@
                         }`;
 
 
-                    updateReasonDots();
+                    updateDots();
 
 
                     reasonText.style.opacity =
                         "1";
 
-
                     reasonText.style.transform =
-                        "translateY(0)";
-
+                        "none";
 
                 },
-                230
+                150
             );
-
 
         }
 
@@ -4044,11 +4234,9 @@
             "click",
             () => {
 
-
                 showReason(
                     currentReason + 1
                 );
-
 
             }
         );
@@ -4060,20 +4248,67 @@
             "click",
             () => {
 
-
                 showReason(
                     currentReason - 1
                 );
-
 
             }
         );
 
 
-        createReasonDots();
+        createDots();
 
 
-        /* ==========================================================
+        /* =========================================================
+           MÚSICA
+        ========================================================== */
+
+        musicButton.addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    if (
+                        musicPlaying
+                    ) {
+
+                        music.pause();
+
+                        musicPlaying = false;
+
+                        musicButton.textContent =
+                            "♪";
+
+                        return;
+
+                    }
+
+
+                    await music.play();
+
+                    musicPlaying = true;
+
+                    musicButton.textContent =
+                        "♫";
+
+                }
+
+                catch (
+                    error
+                ) {
+
+                    console.log(
+                        "No se encontró o no se pudo reproducir cancion.mp3"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
            CARTA
         ========================================================== */
 
@@ -4081,16 +4316,13 @@
             "click",
             () => {
 
-
                 letterModal.classList.add(
                     "show"
                 );
 
-
-                document.body.classList.add(
+                body.classList.add(
                     "no-scroll"
                 );
-
 
             }
         );
@@ -4098,16 +4330,13 @@
 
         function closeLetterModal() {
 
-
             letterModal.classList.remove(
                 "show"
             );
 
-
-            document.body.classList.remove(
+            body.classList.remove(
                 "no-scroll"
             );
-
 
         }
 
@@ -4122,18 +4351,14 @@
             "click",
             event => {
 
-
                 if (
                     event.target ===
                     letterModal
                 ) {
 
-
                     closeLetterModal();
 
-
                 }
-
 
             }
         );
@@ -4143,199 +4368,40 @@
             "keydown",
             event => {
 
-
                 if (
                     event.key ===
                     "Escape"
                 ) {
 
-
                     closeLetterModal();
 
-
-                }
-
-
-            }
-        );
-
-
-        /* ==========================================================
-           MÚSICA
-        ========================================================== */
-
-        musicButton.addEventListener(
-            "click",
-            async () => {
-
-
-                try {
-
-
-                    if (!musicPlaying) {
-
-
-                        await music.play();
-
-
-                        musicPlaying = true;
-
-
-                        musicButton.classList.add(
-                            "playing"
-                        );
-
-
-                        musicButton.textContent =
-                            "♫";
-
-
-                        musicButton.title =
-                            "Pausar música";
-
-
-                    }
-
-
-                    else {
-
-
-                        music.pause();
-
-
-                        musicPlaying = false;
-
-
-                        musicButton.classList.remove(
-                            "playing"
-                        );
-
-
-                        musicButton.textContent =
-                            "♪";
-
-
-                        musicButton.title =
-                            "Reproducir música";
-
-
-                    }
-
-
-                }
-
-
-                catch (error) {
-
-
-                    console.log(
-                        "No se pudo reproducir cancion.mp3"
+                    themeMenu.classList.remove(
+                        "show"
                     );
 
-
                 }
 
-
             }
         );
 
 
-        /* ==========================================================
-           CORAZÓN PRINCIPAL
+        /* =========================================================
+           PARTÍCULAS LIGERAS
+
+           Máximo unas pocas.
+           No existe animación permanente.
         ========================================================== */
 
-        mainHeartButton.addEventListener(
-            "click",
-            event => {
-
-
-                const rect =
-                    event.currentTarget
-                        .getBoundingClientRect();
-
-
-                createParticleBurst(
-
-                    rect.left +
-                    rect.width / 2,
-
-                    rect.top +
-                    rect.height / 2,
-
-                    14
-
-                );
-
-
-            }
-        );
-
-
-        /* ==========================================================
-           MENSAJE FINAL
-        ========================================================== */
-
-        magicButton.addEventListener(
-            "click",
-            event => {
-
-
-                secretMessage.classList.toggle(
-                    "show"
-                );
-
-
-                const rect =
-                    event.currentTarget
-                        .getBoundingClientRect();
-
-
-                createParticleBurst(
-
-                    rect.left +
-                    rect.width / 2,
-
-                    rect.top +
-                    rect.height / 2,
-
-                    25
-
-                );
-
-
-            }
-        );
-
-
-        /* ==========================================================
-           PARTÍCULAS
-        ========================================================== */
-
-        function createParticleBurst(
+        function createParticles(
             x,
             y,
-            amount = 12
+            amount = 8
         ) {
 
-
-            const particles = [
-
+            const characters = [
                 "♡",
                 "♥",
-                "✦",
-                "·",
-                "♡"
-
-            ];
-
-
-            const colors = [
-
-                "#f1c6c9",
-                "#d8a0a7",
-                "#ead8b7",
-                "#c8aa73"
-
+                "✦"
             ];
 
 
@@ -4345,23 +4411,22 @@
                 i++
             ) {
 
-
                 const particle =
                     document.createElement(
-                        "div"
+                        "span"
                     );
 
 
                 particle.className =
-                    "floating-particle";
+                    "particle";
 
 
                 particle.textContent =
-
-                    particles[
+                    characters[
                         Math.floor(
-                            Math.random() *
-                            particles.length
+                            Math.random()
+                            *
+                            characters.length
                         )
                     ];
 
@@ -4375,13 +4440,9 @@
 
 
                 particle.style.color =
-
-                    colors[
-                        Math.floor(
-                            Math.random() *
-                            colors.length
-                        )
-                    ];
+                    i % 2 === 0
+                        ? "var(--accent)"
+                        : "var(--special)";
 
 
                 particle.style.setProperty(
@@ -4389,53 +4450,45 @@
                     "--size",
 
                     (
-                        11 +
-                        Math.random() *
-                        19
+                        12 +
+                        Math.random()
+                        *
+                        12
                     )
-                    + "px"
+                    +
+                    "px"
 
                 );
 
 
                 particle.style.setProperty(
 
-                    "--duration",
+                    "--x",
 
                     (
-                        1.45 +
-                        Math.random() *
-                        1.1
+                        -70 +
+                        Math.random()
+                        *
+                        140
                     )
-                    + "s"
+                    +
+                    "px"
 
                 );
 
 
                 particle.style.setProperty(
 
-                    "--move-x",
+                    "--y",
 
                     (
-                        -105 +
-                        Math.random() *
-                        210
+                        -80 -
+                        Math.random()
+                        *
+                        100
                     )
-                    + "px"
-
-                );
-
-
-                particle.style.setProperty(
-
-                    "--rotation",
-
-                    (
-                        -130 +
-                        Math.random() *
-                        260
-                    )
-                    + "deg"
+                    +
+                    "px"
 
                 );
 
@@ -4448,330 +4501,142 @@
                 setTimeout(
                     () => {
 
-
                         particle.remove();
 
-
                     },
-                    3000
+                    1000
                 );
 
-
             }
-
 
         }
 
 
-        /* ==========================================================
-           ANIMACIONES AL HACER SCROLL
+        heartButton.addEventListener(
+            "click",
+            event => {
+
+                const rect =
+                    event.currentTarget
+                    .getBoundingClientRect();
+
+
+                createParticles(
+
+                    rect.left
+                    +
+                    rect.width / 2,
+
+                    rect.top
+                    +
+                    rect.height / 2,
+
+                    8
+
+                );
+
+            }
+        );
+
+
+        magicButton.addEventListener(
+            "click",
+            event => {
+
+                secretMessage
+                    .classList
+                    .toggle(
+                        "show"
+                    );
+
+
+                const rect =
+                    event.currentTarget
+                    .getBoundingClientRect();
+
+
+                createParticles(
+
+                    rect.left
+                    +
+                    rect.width / 2,
+
+                    rect.top
+                    +
+                    rect.height / 2,
+
+                    10
+
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           REVEAL
+
+           IMPORTANTE:
+           después de aparecer, dejamos de observar.
+           Esto evita trabajo innecesario.
         ========================================================== */
 
-        const observer =
+        const revealObserver =
             new IntersectionObserver(
 
-
                 entries => {
-
 
                     entries.forEach(
                         entry => {
 
-
                             if (
-                                entry.isIntersecting
+                                !entry.isIntersecting
                             ) {
-
-
-                                entry.target
-                                    .classList
-                                    .add(
-                                        "visible"
-                                    );
-
-
+                                return;
                             }
 
+
+                            entry.target
+                                .classList
+                                .add(
+                                    "visible"
+                                );
+
+
+                            revealObserver
+                                .unobserve(
+                                    entry.target
+                                );
 
                         }
                     );
 
-
                 },
 
-
                 {
-                    threshold: .13
+                    threshold: .08,
+
+                    rootMargin:
+                        "0px 0px -30px 0px"
                 }
 
-
             );
 
 
-        document.querySelectorAll(
-            ".reveal"
-        ).forEach(
-            element => {
-
-
-                observer.observe(
-                    element
-                );
-
-
-            }
-        );
-
-
-        /* ==========================================================
-           LUZ DEL MOUSE
-        ========================================================== */
-
-        document.addEventListener(
-            "mousemove",
-            event => {
-
-
-                ambientLight.style.left =
-                    event.clientX +
-                    "px";
-
-
-                ambientLight.style.top =
-                    event.clientY +
-                    "px";
-
-
-            }
-        );
-
-
-        /* ==========================================================
-           ESTRELLAS
-        ========================================================== */
-
-        const canvas =
-            document.getElementById(
-                "stars"
-            );
-
-
-        const ctx =
-            canvas.getContext(
-                "2d"
-            );
-
-
-        let stars = [];
-
-
-        function resizeCanvas() {
-
-
-            const ratio =
-                Math.min(
-                    window.devicePixelRatio || 1,
-                    2
-                );
-
-
-            canvas.width =
-                window.innerWidth *
-                ratio;
-
-
-            canvas.height =
-                window.innerHeight *
-                ratio;
-
-
-            canvas.style.width =
-                window.innerWidth +
-                "px";
-
-
-            canvas.style.height =
-                window.innerHeight +
-                "px";
-
-
-            ctx.setTransform(
-                ratio,
-                0,
-                0,
-                ratio,
-                0,
-                0
-            );
-
-
-            createStars();
-
-
-        }
-
-
-        function createStars() {
-
-
-            stars = [];
-
-
-            const total =
-                Math.max(
-                    45,
-                    Math.floor(
-
-                        (
-                            window.innerWidth *
-                            window.innerHeight
-                        )
-
-                        /
-
-                        12000
-
-                    )
-                );
-
-
-            for (
-                let i = 0;
-                i < total;
-                i++
-            ) {
-
-
-                stars.push({
-
-
-                    x:
-                        Math.random() *
-                        window.innerWidth,
-
-
-                    y:
-                        Math.random() *
-                        window.innerHeight,
-
-
-                    radius:
-                        .4 +
-                        Math.random() *
-                        1.1,
-
-
-                    opacity:
-                        .10 +
-                        Math.random() *
-                        .55,
-
-
-                    speed:
-                        .002 +
-                        Math.random() *
-                        .008,
-
-
-                    direction:
-                        Math.random() >
-                        .5
-
-                        ? 1
-                        : -1
-
-
-                });
-
-
-            }
-
-
-        }
-
-
-        function drawStars() {
-
-
-            ctx.clearRect(
-
-                0,
-                0,
-                window.innerWidth,
-                window.innerHeight
-
-            );
-
-
-            stars.forEach(
-                star => {
-
-
-                    star.opacity +=
-                        star.speed *
-                        star.direction;
-
-
-                    if (
-                        star.opacity >= .72 ||
-                        star.opacity <= .08
-                    ) {
-
-
-                        star.direction *= -1;
-
-
-                    }
-
-
-                    ctx.beginPath();
-
-
-                    ctx.arc(
-
-                        star.x,
-                        star.y,
-                        star.radius,
-                        0,
-                        Math.PI * 2
-
-                    );
-
-
-                    ctx.fillStyle =
-                        `rgba(
-                            244,
-                            229,
-                            200,
-                            ${star.opacity}
-                        )`;
-
-
-                    ctx.fill();
-
+        document
+            .querySelectorAll(
+                ".reveal"
+            )
+            .forEach(
+                element => {
+
+                    revealObserver
+                        .observe(
+                            element
+                        );
 
                 }
             );
-
-
-            requestAnimationFrame(
-                drawStars
-            );
-
-
-        }
-
-
-        window.addEventListener(
-            "resize",
-            resizeCanvas
-        );
-
-
-        resizeCanvas();
-
-        drawStars();
-
 
     </script>
 
