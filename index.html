@@ -2,20 +2,43 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    >
+    <meta name="theme-color" content="#071815">
 
-    <meta name="theme-color" content="#120d19">
-
-    <title>Nuestros 3 meses ♡</title>
+    <title>Para Mel ♡ | Nuestros 3 meses</title>
 
     <style>
-        /* ============================================================
-           RESET
-        ============================================================ */
+
+        /* ==========================================================
+           CONFIGURACIÓN GENERAL
+        ========================================================== */
+
+        :root {
+            --bg: #071815;
+            --bg-2: #0b221e;
+            --bg-3: #102d27;
+
+            --green: #1c554a;
+            --green-soft: #36796b;
+
+            --cream: #fff8ee;
+            --champagne: #ead8b7;
+            --gold: #c8aa73;
+
+            --rose: #d8a0a7;
+            --rose-soft: #f1c6c9;
+
+            --white-soft: rgba(255, 248, 238, .72);
+            --white-muted: rgba(255, 248, 238, .52);
+
+            --glass: rgba(255,255,255,.055);
+            --glass-strong: rgba(255,255,255,.085);
+            --border: rgba(255,255,255,.10);
+
+            --shadow: 0 25px 80px rgba(0,0,0,.35);
+        }
+
 
         * {
             margin: 0;
@@ -23,13 +46,19 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
             min-height: 100vh;
+
             overflow-x: hidden;
+
+            color: var(--cream);
+
             font-family:
                 "Segoe UI",
                 system-ui,
@@ -37,73 +66,122 @@
                 BlinkMacSystemFont,
                 sans-serif;
 
-            color: #fff;
             background:
-                radial-gradient(circle at 15% 20%, rgba(255, 118, 153, .12), transparent 28%),
-                radial-gradient(circle at 85% 35%, rgba(192, 126, 255, .10), transparent 30%),
-                radial-gradient(circle at 50% 90%, rgba(255, 183, 197, .10), transparent 30%),
-                #0d0912;
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(216,160,167,.10),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 88% 25%,
+                    rgba(200,170,115,.09),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 50% 90%,
+                    rgba(54,121,107,.15),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #061411 0%,
+                    #091c18 45%,
+                    #071512 100%
+                );
         }
+
 
         body.no-scroll {
             overflow: hidden;
         }
 
+
         ::selection {
-            background: #ff7f9f;
-            color: white;
+            background: var(--rose);
+            color: #10211c;
         }
 
-        /* ============================================================
-           VARIABLES
-        ============================================================ */
 
-        :root {
-            --rosa: #ff7697;
-            --rosa-claro: #ffb5c7;
-            --rosa-pastel: #ffd5df;
-            --morado: #b982ff;
-            --fondo: #0d0912;
-            --card: rgba(255,255,255,.07);
-            --borde: rgba(255,255,255,.12);
-            --texto-suave: rgba(255,255,255,.69);
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* ============================================================
-           CANVAS DE ESTRELLAS
-        ============================================================ */
+
+        /* ==========================================================
+           FONDO
+        ========================================================== */
 
         #stars {
             position: fixed;
+
             inset: 0;
+
             width: 100%;
             height: 100%;
-            z-index: -2;
+
+            z-index: -3;
+
             pointer-events: none;
         }
 
+
         .ambient-light {
             position: fixed;
+
+            left: 50%;
+            top: 50%;
+
             width: 500px;
             height: 500px;
-            border-radius: 50%;
-            filter: blur(100px);
-            background: rgba(255, 104, 143, .08);
-            pointer-events: none;
-            z-index: -1;
+
             transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            filter: blur(120px);
+
+            background:
+                rgba(216,160,167,.08);
+
+            pointer-events: none;
+
+            z-index: -2;
+
             transition:
                 left .5s ease,
                 top .5s ease;
         }
 
-        /* ============================================================
-           INTRO / PANTALLA INICIAL
-        ============================================================ */
+
+        .background-grain {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -1;
+
+            opacity: .03;
+
+            pointer-events: none;
+
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+        }
+
+
+        /* ==========================================================
+           INTRO
+        ========================================================== */
 
         .intro {
             position: fixed;
+
             inset: 0;
+
             z-index: 9999;
 
             display: flex;
@@ -113,252 +191,421 @@
             padding: 24px;
 
             background:
-                radial-gradient(circle at center, #251427 0%, #100b15 60%, #08060b 100%);
+                radial-gradient(
+                    circle at center,
+                    #12332c 0%,
+                    #071815 55%,
+                    #030a09 100%
+                );
 
             transition:
                 opacity 1s ease,
                 visibility 1s ease;
         }
 
+
         .intro.hide {
             opacity: 0;
             visibility: hidden;
+
             pointer-events: none;
         }
 
+
         .intro-content {
+            width: min(680px, 100%);
+
             text-align: center;
-            max-width: 650px;
-            animation: introAppear 1.3s ease;
+
+            animation:
+                introIn 1.25s ease both;
         }
 
-        @keyframes introAppear {
+
+        @keyframes introIn {
+
             from {
                 opacity: 0;
-                transform: translateY(25px) scale(.97);
+
+                transform:
+                    translateY(24px)
+                    scale(.97);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+
+                transform:
+                    translateY(0)
+                    scale(1);
             }
+
         }
 
-        .tiny-text {
+
+        .intro-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 8px 15px;
+
+            margin-bottom: 25px;
+
+            border-radius: 999px;
+
+            border:
+                1px solid rgba(255,255,255,.10);
+
+            color: var(--champagne);
+
+            background:
+                rgba(255,255,255,.04);
+
+            font-size: .72rem;
+
+            letter-spacing: 3px;
+
             text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: .75rem;
-            color: var(--rosa-claro);
-            margin-bottom: 22px;
         }
+
+
+        .intro-date span {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--rose);
+
+            box-shadow:
+                0 0 14px rgba(216,160,167,.8);
+        }
+
 
         .intro h1 {
-            font-family: Georgia, "Times New Roman", serif;
+            margin-bottom: 22px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(2.8rem, 8vw, 5.7rem);
+
+            line-height: 1;
+
             font-weight: 400;
-            font-size: clamp(2.6rem, 8vw, 5.5rem);
-            line-height: .98;
-            margin-bottom: 20px;
+
+            letter-spacing: -2px;
         }
 
-        .intro h1 span {
-            background: linear-gradient(
-                120deg,
-                #fff,
-                #ffc0cf,
-                #e8c5ff
-            );
 
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .intro h1 em {
+            font-style: normal;
+
+            color: var(--rose-soft);
         }
+
 
         .intro p {
-            color: var(--texto-suave);
-            line-height: 1.8;
+            width: min(520px, 100%);
+
+            margin: 0 auto 34px;
+
+            color: var(--white-soft);
+
             font-size: 1rem;
-            max-width: 480px;
-            margin: 0 auto 35px;
+
+            line-height: 1.9;
         }
 
-        .open-button {
+
+        .main-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 15px 27px;
+
             border: none;
+
+            border-radius: 999px;
+
             cursor: pointer;
 
-            color: white;
-            font-size: .95rem;
-            letter-spacing: .4px;
+            color: #10231e;
 
-            padding: 15px 29px;
-            border-radius: 999px;
+            font-size: .95rem;
+            font-weight: 600;
 
             background:
                 linear-gradient(
                     135deg,
-                    #ff6f91,
-                    #b66cff
+                    var(--champagne),
+                    var(--rose-soft)
                 );
 
             box-shadow:
-                0 15px 50px rgba(255, 95, 142, .28);
+                0 15px 45px rgba(216,160,167,.20);
 
             transition:
                 transform .3s ease,
                 box-shadow .3s ease;
         }
 
-        .open-button:hover {
-            transform: translateY(-3px) scale(1.03);
+
+        .main-button:hover {
+            transform:
+                translateY(-3px)
+                scale(1.025);
+
             box-shadow:
-                0 18px 60px rgba(255, 95, 142, .4);
+                0 20px 55px rgba(216,160,167,.30);
         }
 
-        .small-heart {
+
+        .intro-heart {
             margin-top: 30px;
-            font-size: 1.3rem;
-            animation: heartbeat 1.7s infinite;
+
+            color: var(--rose-soft);
+
+            font-size: 1.2rem;
+
+            animation:
+                softPulse 1.8s infinite;
         }
 
-        /* ============================================================
-           NAVEGACIÓN
-        ============================================================ */
 
-        nav {
+        @keyframes softPulse {
+
+            0%,
+            100% {
+                opacity: .65;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.13);
+            }
+
+        }
+
+
+        /* ==========================================================
+           NAVEGACIÓN
+        ========================================================== */
+
+        .nav {
             position: fixed;
-            top: 18px;
+
+            top: 17px;
             left: 50%;
+
             transform: translateX(-50%);
+
             z-index: 100;
 
-            width: min(94%, 950px);
+            width: min(94%, 1000px);
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            padding: 10px 12px 10px 20px;
+            gap: 15px;
 
-            border: 1px solid var(--borde);
+            padding:
+                9px 11px
+                9px 19px;
+
+            border:
+                1px solid var(--border);
+
             border-radius: 999px;
 
-            background: rgba(15, 10, 20, .58);
-            backdrop-filter: blur(18px);
+            background:
+                rgba(7,24,21,.67);
+
+            backdrop-filter:
+                blur(18px);
 
             box-shadow:
-                0 10px 30px rgba(0,0,0,.18);
+                0 12px 35px rgba(0,0,0,.18);
         }
 
-        .nav-logo {
-            font-family: Georgia, serif;
-            font-size: .95rem;
-            color: #fff;
+
+        .nav-brand {
             white-space: nowrap;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: .95rem;
+
+            color: var(--champagne);
         }
+
 
         .nav-links {
             display: flex;
-            gap: 5px;
+
+            align-items: center;
+
+            gap: 3px;
         }
+
 
         .nav-links a {
-            text-decoration: none;
-            color: rgba(255,255,255,.68);
-
             padding: 8px 12px;
+
             border-radius: 999px;
 
-            font-size: .8rem;
+            color:
+                rgba(255,248,238,.65);
 
-            transition: .25s;
+            text-decoration: none;
+
+            font-size: .78rem;
+
+            transition: .25s ease;
         }
+
 
         .nav-links a:hover {
-            color: white;
-            background: rgba(255,255,255,.08);
+            color: var(--cream);
+
+            background:
+                rgba(255,255,255,.06);
         }
+
 
         .music-button {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
+
+            flex: 0 0 auto;
 
             border-radius: 50%;
-            border: 1px solid rgba(255,255,255,.11);
 
-            background: rgba(255,255,255,.06);
-            color: white;
+            border:
+                1px solid rgba(255,255,255,.10);
+
+            color: var(--champagne);
+
+            background:
+                rgba(255,255,255,.05);
 
             cursor: pointer;
-            transition: .3s;
+
+            transition:
+                transform .25s ease,
+                background .25s ease;
         }
+
 
         .music-button:hover {
             transform: scale(1.08);
-            background: rgba(255,255,255,.12);
+
+            background:
+                rgba(255,255,255,.10);
         }
+
 
         .music-button.playing {
-            animation: musicPulse 1.5s infinite;
+            animation:
+                musicPulse 1.5s infinite;
         }
+
 
         @keyframes musicPulse {
+
             50% {
                 box-shadow:
-                    0 0 0 7px rgba(255, 118, 151, .08);
+                    0 0 0 7px
+                    rgba(216,160,167,.07);
             }
+
         }
 
-        /* ============================================================
-           ELEMENTOS GENERALES
-        ============================================================ */
+
+        /* ==========================================================
+           UTILIDADES
+        ========================================================== */
 
         section {
             position: relative;
-            padding: 110px 22px;
+
+            padding:
+                110px 22px;
         }
 
+
         .container {
-            width: min(1100px, 100%);
+            width:
+                min(1100px, 100%);
+
             margin: auto;
         }
 
-        .section-label {
-            text-align: center;
-            color: var(--rosa-claro);
 
-            font-size: .72rem;
+        .section-label {
+            margin-bottom: 13px;
+
+            text-align: center;
+
+            color: var(--gold);
+
+            font-size: .7rem;
+
             letter-spacing: 4px;
 
             text-transform: uppercase;
-            margin-bottom: 15px;
         }
+
 
         .section-title {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(2rem, 5vw, 3.7rem);
-            font-weight: 400;
+            margin-bottom: 18px;
+
             text-align: center;
 
-            margin-bottom: 18px;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(2.1rem, 5vw, 3.7rem);
+
+            font-weight: 400;
+
+            line-height: 1.15;
         }
+
 
         .section-description {
-            color: var(--texto-suave);
-            max-width: 640px;
+            width:
+                min(650px, 100%);
+
+            margin:
+                0 auto 55px;
+
             text-align: center;
-            margin: 0 auto 60px;
 
-            line-height: 1.8;
+            color: var(--white-soft);
+
+            line-height: 1.85;
         }
 
-        .glass {
-            background: var(--card);
-            border: 1px solid var(--borde);
-            backdrop-filter: blur(18px);
-        }
 
-        /* ============================================================
+        /* ==========================================================
            HERO
-        ============================================================ */
+        ========================================================== */
 
         .hero {
             min-height: 100vh;
@@ -367,226 +614,294 @@
             align-items: center;
             justify-content: center;
 
-            padding-top: 150px;
-            padding-bottom: 100px;
+            padding-top: 145px;
 
             text-align: center;
         }
 
+
         .hero-inner {
-            width: min(950px, 100%);
+            width:
+                min(950px, 100%);
+
             margin: auto;
         }
 
+
         .hero-badge {
             display: inline-flex;
+
             align-items: center;
+
             gap: 9px;
 
-            padding: 8px 15px;
+            margin-bottom: 28px;
+
+            padding:
+                8px 15px;
+
+            border:
+                1px solid var(--border);
 
             border-radius: 999px;
-            border: 1px solid rgba(255,255,255,.12);
 
-            background: rgba(255,255,255,.05);
+            color: var(--champagne);
 
-            color: var(--rosa-pastel);
+            background:
+                rgba(255,255,255,.045);
+
             font-size: .8rem;
-
-            margin-bottom: 27px;
         }
+
 
         .badge-dot {
             width: 7px;
             height: 7px;
 
             border-radius: 50%;
-            background: #ff7697;
+
+            background: var(--rose);
 
             box-shadow:
-                0 0 15px #ff7697;
+                0 0 15px rgba(216,160,167,.75);
         }
 
-        .hero h1 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-weight: 400;
 
-            font-size: clamp(3.4rem, 10vw, 7.8rem);
-            line-height: .91;
+        /* ==========================================================
+           CORAZÓN SVG CORREGIDO
+        ========================================================== */
 
-            letter-spacing: -4px;
-        }
-
-        .hero h1 .gradient {
-            background:
-                linear-gradient(
-                    120deg,
-                    #fff,
-                    #ffacc1 42%,
-                    #d8adff
-                );
-
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-subtitle {
-            width: min(620px, 100%);
-            margin: 30px auto 45px;
-
-            color: rgba(255,255,255,.68);
-            font-size: 1.05rem;
-            line-height: 1.9;
-        }
-
-        /* ============================================================
-           CORAZÓN CENTRAL
-        ============================================================ */
-
-        .heart-wrapper {
-            height: 90px;
+        .heart-stage {
+            height: 105px;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            margin-bottom: 20px;
+            margin-bottom: 17px;
         }
 
-        .heart {
-            position: relative;
-            width: 42px;
-            height: 42px;
 
-            background: #ff6f91;
+        .heart-button {
+            width: 92px;
+            height: 92px;
 
-            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            animation:
-                heartbeat 1.65s infinite;
+            padding: 0;
 
-            box-shadow:
-                0 0 35px rgba(255, 95, 142, .45);
+            border: 0;
 
             cursor: pointer;
+
+            background: transparent;
         }
 
-        .heart::before,
-        .heart::after {
-            content: "";
 
-            position: absolute;
+        .hero-heart {
+            width: 80px;
+            height: 80px;
 
-            width: 42px;
-            height: 42px;
+            overflow: visible;
 
-            background: inherit;
-            border-radius: 50%;
+            filter:
+                drop-shadow(
+                    0 8px 18px
+                    rgba(216,160,167,.22)
+                );
+
+            animation:
+                heartBeat 1.8s infinite;
+
+            transform-origin: center;
         }
 
-        .heart::before {
-            left: -21px;
-        }
 
-        .heart::after {
-            top: -21px;
-        }
+        @keyframes heartBeat {
 
-        @keyframes heartbeat {
-            0%, 100% {
-                transform:
-                    rotate(45deg)
-                    scale(1);
+            0%,
+            100% {
+                transform: scale(1);
             }
 
-            15% {
-                transform:
-                    rotate(45deg)
-                    scale(1.12);
+            14% {
+                transform: scale(1.09);
             }
 
-            30% {
-                transform:
-                    rotate(45deg)
-                    scale(1);
+            28% {
+                transform: scale(1);
             }
 
-            45% {
-                transform:
-                    rotate(45deg)
-                    scale(1.08);
+            42% {
+                transform: scale(1.055);
             }
+
         }
 
-        /* ============================================================
+
+        .hero h1 {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(3.3rem, 10vw, 7.4rem);
+
+            font-weight: 400;
+
+            letter-spacing: -4px;
+
+            line-height: .92;
+        }
+
+
+        .hero h1 .gradient {
+            color: transparent;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #fff8ee 0%,
+                    #ead8b7 45%,
+                    #d8a0a7 100%
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+
+        .hero-subtitle {
+            width:
+                min(650px, 100%);
+
+            margin:
+                30px auto 43px;
+
+            color: var(--white-soft);
+
+            line-height: 1.9;
+
+            font-size: 1.03rem;
+        }
+
+
+        /* ==========================================================
            CONTADOR
-        ============================================================ */
+        ========================================================== */
 
         .countdown {
+            width:
+                min(680px, 100%);
+
+            margin: auto;
+
             display: grid;
+
             grid-template-columns:
-                repeat(4, minmax(90px, 1fr));
+                repeat(4, 1fr);
 
             gap: 12px;
-
-            width: min(660px, 100%);
-            margin: auto;
         }
 
+
         .count-card {
-            padding: 20px 10px;
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                21px 10px;
+
+            border:
+                1px solid var(--border);
+
             border-radius: 22px;
 
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255,255,255,.08),
-                    rgba(255,255,255,.03)
+                    rgba(255,255,255,.065),
+                    rgba(255,255,255,.025)
                 );
 
-            border:
-                1px solid rgba(255,255,255,.1);
+            backdrop-filter:
+                blur(12px);
         }
+
+
+        .count-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 15%;
+            right: 15%;
+
+            bottom: 0;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--gold),
+                    transparent
+                );
+
+            opacity: .45;
+        }
+
 
         .count-number {
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
-            font-size: clamp(
-                1.7rem,
-                5vw,
-                2.6rem
-            );
-
-            color: #fff;
+            font-size:
+                clamp(1.8rem, 5vw, 2.7rem);
         }
+
 
         .count-label {
-            color: rgba(255,255,255,.48);
-
-            font-size: .68rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-
             margin-top: 6px;
+
+            color:
+                rgba(255,248,238,.45);
+
+            font-size: .66rem;
+
+            letter-spacing: 1.7px;
+
+            text-transform: uppercase;
         }
+
 
         #anniversaryMessage {
+            min-height: 24px;
+
             margin-top: 20px;
 
-            color: var(--rosa-claro);
-            min-height: 25px;
+            color: var(--rose-soft);
+
+            font-size: .9rem;
         }
 
-        /* ============================================================
-           NÚMERO 3
-        ============================================================ */
 
-        .three-months {
-            padding-top: 65px;
+        /* ==========================================================
+           TRES MESES
+        ========================================================== */
+
+        .three-section {
+            padding-top: 70px;
         }
 
-        .big-number-section {
+
+        .three-content-wrapper {
             position: relative;
 
             min-height: 450px;
@@ -595,62 +910,88 @@
             align-items: center;
             justify-content: center;
 
-            text-align: center;
-
             overflow: hidden;
+
+            text-align: center;
         }
+
 
         .big-three {
             position: absolute;
 
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
-            font-size: min(65vw, 550px);
+            font-size:
+                min(68vw, 570px);
+
             line-height: .8;
 
             color: transparent;
 
             -webkit-text-stroke:
-                1px rgba(255,255,255,.07);
+                1px rgba(255,248,238,.05);
 
             user-select: none;
         }
 
-        .three-content {
+
+        .three-copy {
             position: relative;
+
             z-index: 2;
 
-            width: min(720px, 100%);
+            width:
+                min(760px, 100%);
         }
 
-        .three-content h2 {
-            font-family: Georgia, serif;
+
+        .three-copy h2 {
+            margin-bottom: 27px;
+
+            font-family:
+                Georgia,
+                serif;
 
             font-size:
-                clamp(2.3rem, 7vw, 5rem);
+                clamp(2.3rem, 7vw, 4.8rem);
 
             font-weight: 400;
 
-            margin-bottom: 25px;
+            line-height: 1.08;
         }
 
-        .three-content p {
-            line-height: 1.95;
-            color: rgba(255,255,255,.68);
+
+        .three-copy p {
+            color: var(--white-soft);
 
             font-size: 1.03rem;
+
+            line-height: 2;
         }
 
-        /* ============================================================
+
+        .three-copy strong {
+            color: var(--champagne);
+
+            font-weight: 500;
+        }
+
+
+        /* ==========================================================
            TIMELINE
-        ============================================================ */
+        ========================================================== */
 
         .timeline {
-            width: min(820px, 100%);
-            margin: auto;
-
             position: relative;
+
+            width:
+                min(850px, 100%);
+
+            margin: auto;
         }
+
 
         .timeline::before {
             content: "";
@@ -666,28 +1007,32 @@
             background:
                 linear-gradient(
                     transparent,
-                    rgba(255,118,151,.8),
-                    rgba(185,130,255,.7),
+                    rgba(200,170,115,.75),
+                    rgba(216,160,167,.8),
                     transparent
                 );
         }
 
-        .timeline-item {
-            width: 50%;
 
+        .timeline-item {
             position: relative;
+
+            width: 50%;
 
             padding:
                 10px 45px
-                70px 0;
+                65px 0;
         }
+
 
         .timeline-item:nth-child(even) {
             margin-left: 50%;
+
             padding:
                 10px 0
-                70px 45px;
+                65px 45px;
         }
+
 
         .timeline-dot {
             position: absolute;
@@ -700,355 +1045,471 @@
 
             border-radius: 50%;
 
-            background: #ff829f;
+            background: var(--gold);
 
             box-shadow:
-                0 0 0 7px rgba(255,130,159,.08),
-                0 0 22px rgba(255,130,159,.5);
+                0 0 0 7px rgba(200,170,115,.08),
+                0 0 20px rgba(200,170,115,.35);
         }
+
 
         .timeline-item:nth-child(even)
         .timeline-dot {
             left: -7px;
+            right: auto;
         }
+
 
         .timeline-card {
             padding: 25px;
+
+            border:
+                1px solid var(--border);
+
             border-radius: 25px;
 
             background:
-                rgba(255,255,255,.055);
+                rgba(255,255,255,.045);
 
-            border:
-                1px solid rgba(255,255,255,.09);
+            backdrop-filter:
+                blur(12px);
 
             transition:
                 transform .35s ease,
-                background .35s ease;
+                background .35s ease,
+                border-color .35s ease;
         }
+
 
         .timeline-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+
             background:
-                rgba(255,255,255,.08);
+                rgba(255,255,255,.07);
+
+            border-color:
+                rgba(216,160,167,.22);
         }
+
 
         .timeline-date {
-            color: var(--rosa-claro);
+            margin-bottom: 10px;
 
-            font-size: .74rem;
-            text-transform: uppercase;
+            color: var(--gold);
+
+            font-size: .72rem;
+
             letter-spacing: 2px;
 
-            margin-bottom: 10px;
+            text-transform: uppercase;
         }
+
 
         .timeline-card h3 {
-            font-family: Georgia, serif;
-            font-size: 1.5rem;
-            font-weight: 400;
+            margin-bottom: 11px;
 
-            margin-bottom: 10px;
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 1.55rem;
+
+            font-weight: 400;
         }
+
 
         .timeline-card p {
-            color: rgba(255,255,255,.6);
-            line-height: 1.7;
-            font-size: .9rem;
+            color: var(--white-soft);
+
+            font-size: .91rem;
+
+            line-height: 1.75;
         }
 
-        /* ============================================================
+
+        /* ==========================================================
            GALERÍA
-        ============================================================ */
+        ========================================================== */
 
         .gallery-grid {
+            width:
+                min(970px, 100%);
+
+            margin: auto;
+
             display: grid;
 
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 24px;
-
-            width: min(950px, 100%);
-            margin: auto;
+            gap: 27px;
         }
 
+
         .polaroid {
-            background: #f6f0eb;
+            position: relative;
 
             padding:
-                11px 11px
-                46px;
+                11px 11px 50px;
 
-            border-radius: 4px;
+            border-radius: 5px;
+
+            background: #f4eadc;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.32);
 
             transform:
                 rotate(var(--rotation));
 
-            box-shadow:
-                0 22px 60px rgba(0,0,0,.28);
-
             transition:
                 transform .4s ease,
                 box-shadow .4s ease;
-
-            position: relative;
         }
+
 
         .polaroid:hover {
-            transform:
-                rotate(0)
-                translateY(-12px)
-                scale(1.03);
-
             z-index: 5;
 
+            transform:
+                rotate(0)
+                translateY(-10px)
+                scale(1.025);
+
             box-shadow:
-                0 30px 80px rgba(0,0,0,.4);
+                0 30px 85px rgba(0,0,0,.42);
         }
+
 
         .photo-wrapper {
             width: 100%;
+
             aspect-ratio: 4 / 5;
 
             overflow: hidden;
 
             background:
                 linear-gradient(
-                    135deg,
-                    #3a2439,
-                    #7c435b
+                    145deg,
+                    #23463f,
+                    #805863
                 );
         }
+
 
         .photo-wrapper img {
             width: 100%;
             height: 100%;
 
-            object-fit: cover;
             display: block;
+
+            object-fit: cover;
 
             transition:
                 transform .6s ease;
         }
 
+
         .polaroid:hover
         .photo-wrapper img {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
+
 
         .photo-placeholder {
             width: 100%;
             height: 100%;
 
-            display: flex;
+            display: none;
+
             align-items: center;
             justify-content: center;
 
+            padding: 25px;
+
             text-align: center;
 
-            color: rgba(255,255,255,.75);
+            color:
+                rgba(255,255,255,.78);
 
-            font-size: .8rem;
+            font-size: .84rem;
+
             line-height: 1.6;
-
-            padding: 20px;
         }
 
-        .polaroid-text {
+
+        .polaroid-caption {
             position: absolute;
 
-            left: 15px;
-            bottom: 13px;
+            left: 16px;
+            right: 16px;
+            bottom: 14px;
 
-            color: #493943;
+            color: #554143;
 
             font-family:
                 "Segoe Script",
+                "Comic Sans MS",
                 cursive;
 
-            font-size: .9rem;
+            font-size: .91rem;
         }
 
-        /* ============================================================
-           MOTIVOS
-        ============================================================ */
 
-        .reasons-container {
-            width: min(800px, 100%);
+        /* ==========================================================
+           FRASE CENTRAL
+        ========================================================== */
+
+        .quote-section {
+            padding:
+                145px 22px;
+        }
+
+
+        .quote {
+            width:
+                min(900px, 100%);
+
             margin: auto;
 
             text-align: center;
         }
 
+
+        .quote-mark {
+            height: 70px;
+
+            color:
+                rgba(216,160,167,.24);
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 7rem;
+
+            line-height: .7;
+        }
+
+
+        .quote p {
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(2rem, 6vw, 4.1rem);
+
+            line-height: 1.3;
+
+            color: transparent;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    var(--cream),
+                    var(--champagne),
+                    var(--rose-soft)
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+
+        /* ==========================================================
+           RAZONES
+        ========================================================== */
+
+        .reasons-wrapper {
+            width:
+                min(820px, 100%);
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
         .reason-card {
             position: relative;
 
-            min-height: 290px;
-
-            border-radius: 35px;
+            min-height: 310px;
 
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
 
-            padding: 40px;
-
             overflow: hidden;
+
+            padding: 42px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            border-radius: 34px;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255,116,151,.12),
-                    rgba(177,111,255,.08)
+                    rgba(54,121,107,.12),
+                    rgba(216,160,167,.08),
+                    rgba(200,170,115,.06)
                 );
 
-            border:
-                1px solid rgba(255,255,255,.11);
-
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.07);
+                inset 0 1px 0
+                rgba(255,255,255,.05);
         }
 
-        .reason-card::after {
+
+        .reason-card::before {
             content: "♡";
 
             position: absolute;
 
-            right: -18px;
-            bottom: -75px;
+            right: -25px;
+            bottom: -85px;
 
-            font-family: Georgia, serif;
+            color:
+                rgba(255,255,255,.023);
 
-            font-size: 230px;
+            font-family:
+                Georgia,
+                serif;
 
-            color: rgba(255,255,255,.025);
+            font-size: 250px;
+
+            pointer-events: none;
         }
+
 
         .reason-number {
-            font-size: .73rem;
+            margin-bottom: 23px;
+
+            color: var(--gold);
+
+            font-size: .72rem;
 
             letter-spacing: 3px;
+
             text-transform: uppercase;
-
-            color: var(--rosa-claro);
-
-            margin-bottom: 22px;
         }
 
+
         #reasonText {
-            font-family: Georgia, serif;
+            width:
+                min(680px, 100%);
+
+            font-family:
+                Georgia,
+                serif;
 
             font-size:
-                clamp(1.5rem, 5vw, 2.5rem);
+                clamp(1.55rem, 5vw, 2.5rem);
 
-            line-height: 1.4;
-
-            max-width: 650px;
+            line-height: 1.45;
 
             transition:
                 opacity .25s ease,
                 transform .25s ease;
         }
 
+
         .reason-controls {
             display: flex;
             justify-content: center;
+
             gap: 12px;
 
-            margin-top: 22px;
+            margin-top: 24px;
         }
 
-        .round-button {
-            width: 48px;
-            height: 48px;
+
+        .reason-button {
+            width: 49px;
+            height: 49px;
 
             border-radius: 50%;
 
             border:
-                1px solid rgba(255,255,255,.13);
+                1px solid var(--border);
+
+            color: var(--cream);
 
             background:
-                rgba(255,255,255,.06);
+                rgba(255,255,255,.05);
 
-            color: white;
             font-size: 1rem;
 
             cursor: pointer;
 
-            transition: .3s;
+            transition:
+                transform .25s ease,
+                background .25s ease;
         }
 
-        .round-button:hover {
-            transform: scale(1.09);
+
+        .reason-button:hover {
+            transform: scale(1.08);
 
             background:
-                rgba(255,255,255,.12);
+                rgba(255,255,255,.10);
         }
 
-        /* ============================================================
-           FRASE
-        ============================================================ */
 
-        .quote-section {
-            padding:
-                150px 22px;
+        .reason-dots {
+            display: flex;
+            justify-content: center;
+
+            gap: 7px;
+
+            margin-top: 18px;
         }
 
-        .quote {
-            width: min(900px, 100%);
-            margin: auto;
 
-            text-align: center;
-        }
+        .reason-dot {
+            width: 6px;
+            height: 6px;
 
-        .quote-symbol {
-            font-family: Georgia, serif;
-
-            font-size: 6rem;
-            line-height: .7;
-
-            color:
-                rgba(255,140,170,.28);
-        }
-
-        .quote p {
-            font-family: Georgia, serif;
-
-            font-size:
-                clamp(2rem, 6vw, 4rem);
-
-            line-height: 1.3;
+            border-radius: 50%;
 
             background:
-                linear-gradient(
-                    120deg,
-                    white,
-                    #ffc4d2,
-                    #dfc4ff
-                );
+                rgba(255,255,255,.20);
 
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            transition:
+                width .25s ease,
+                background .25s ease;
         }
 
-        /* ============================================================
+
+        .reason-dot.active {
+            width: 20px;
+
+            border-radius: 999px;
+
+            background: var(--rose);
+        }
+
+
+        /* ==========================================================
            CARTA
-        ============================================================ */
+        ========================================================== */
 
-        .letter-area {
+        .letter-section {
             text-align: center;
         }
+
 
         .envelope {
-            width: 270px;
-            height: 175px;
-
-            margin: 35px auto;
-
             position: relative;
+
+            width: 285px;
+            height: 185px;
+
+            margin:
+                35px auto;
 
             cursor: pointer;
 
@@ -1056,40 +1517,45 @@
                 transform .35s ease;
         }
 
+
         .envelope:hover {
             transform:
                 translateY(-8px)
                 rotate(-1deg);
         }
 
-        .envelope-body {
+
+        .envelope-back {
             position: absolute;
+
             inset: 0;
 
             border-radius:
-                4px 4px 12px 12px;
+                5px 5px 12px 12px;
 
             background:
                 linear-gradient(
                     145deg,
-                    #d48aa0,
-                    #a75f79
+                    #d8b99b,
+                    #ad8078
                 );
 
             box-shadow:
-                0 25px 60px rgba(0,0,0,.25);
+                0 25px 65px rgba(0,0,0,.28);
         }
 
-        .envelope-body::before {
+
+        .envelope-back::before {
             content: "";
 
             position: absolute;
+
             inset: 0;
 
             clip-path:
                 polygon(
                     0 0,
-                    50% 60%,
+                    50% 62%,
                     100% 0,
                     100% 100%,
                     0 100%
@@ -1098,17 +1564,20 @@
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255,255,255,.14),
-                    rgba(0,0,0,.06)
+                    rgba(255,255,255,.17),
+                    rgba(0,0,0,.05)
                 );
         }
 
+
         .envelope-flap {
             position: absolute;
-            inset:
-                0 0 auto 0;
 
-            height: 110px;
+            left: 0;
+            right: 0;
+            top: 0;
+
+            height: 112px;
 
             clip-path:
                 polygon(
@@ -1117,125 +1586,128 @@
                     50% 100%
                 );
 
-            background: #e3a0b3;
+            background: #e5c5ab;
 
-            transform-origin: top;
-
-            z-index: 4;
-
-            transition:
-                transform .65s ease;
+            z-index: 3;
         }
 
-        .wax-seal {
+
+        .seal {
             position: absolute;
 
             left: 50%;
-            top: 82px;
+            top: 87px;
 
-            transform:
-                translateX(-50%);
+            transform: translateX(-50%);
 
-            width: 48px;
-            height: 48px;
+            z-index: 4;
 
-            border-radius: 50%;
+            width: 50px;
+            height: 50px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            z-index: 5;
+            border-radius: 50%;
 
-            color: white;
+            color: #fff;
+
+            font-family:
+                Georgia,
+                serif;
 
             background:
                 linear-gradient(
                     145deg,
-                    #d74766,
-                    #8e213c
+                    #9d5b63,
+                    #743a46
                 );
 
-            border:
-                3px solid rgba(255,255,255,.1);
-
             box-shadow:
-                0 6px 16px rgba(0,0,0,.22);
-
-            font-family: Georgia, serif;
+                0 8px 18px rgba(0,0,0,.22);
         }
+
 
         .letter-hint {
-            color: rgba(255,255,255,.54);
-            font-size: .85rem;
+            color: var(--white-muted);
+
+            font-size: .84rem;
         }
 
-        /* ============================================================
+
+        /* ==========================================================
            MODAL CARTA
-        ============================================================ */
+        ========================================================== */
 
         .letter-modal {
             position: fixed;
+
             inset: 0;
 
             z-index: 1000;
-
-            padding: 25px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            background:
-                rgba(5,3,8,.78);
-
-            backdrop-filter:
-                blur(15px);
+            padding: 24px;
 
             opacity: 0;
             visibility: hidden;
 
-            transition: .4s;
+            background:
+                rgba(3,10,8,.82);
+
+            backdrop-filter:
+                blur(16px);
+
+            transition: .4s ease;
         }
+
 
         .letter-modal.show {
             opacity: 1;
             visibility: visible;
         }
 
+
         .paper {
-            width:
-                min(690px, 100%);
-
-            max-height: 85vh;
-            overflow-y: auto;
-
             position: relative;
 
+            width:
+                min(700px, 100%);
+
+            max-height: 86vh;
+
+            overflow-y: auto;
+
             padding:
-                55px 55px 50px;
+                57px 57px 52px;
 
-            border-radius: 8px;
+            color: #47373a;
 
-            color: #49323b;
+            border-radius: 9px;
 
             background:
                 linear-gradient(
                     135deg,
-                    #fffaf7,
-                    #f8ecea
+                    #fffaf1,
+                    #f6ecde
                 );
 
             box-shadow:
-                0 40px 120px rgba(0,0,0,.42);
+                0 45px 130px
+                rgba(0,0,0,.48);
 
             transform:
-                translateY(35px)
-                scale(.94);
+                translateY(30px)
+                scale(.95);
 
             transition:
                 transform .5s ease;
         }
+
 
         .letter-modal.show
         .paper {
@@ -1244,102 +1716,115 @@
                 scale(1);
         }
 
+
         .paper::before {
             content: "";
 
             position: absolute;
+
             inset: 0;
 
-            pointer-events: none;
+            opacity: .16;
 
-            opacity: .25;
+            pointer-events: none;
 
             background-image:
                 repeating-linear-gradient(
                     transparent 0,
                     transparent 31px,
-                    rgba(164,117,128,.15) 32px
+                    rgba(100,80,70,.12) 32px
                 );
         }
+
 
         .close-letter {
             position: absolute;
 
             top: 15px;
-            right: 17px;
+            right: 16px;
+
+            z-index: 5;
 
             width: 36px;
             height: 36px;
 
-            border-radius: 50%;
             border: none;
+            border-radius: 50%;
 
             cursor: pointer;
 
+            color: #624e52;
+
             background:
-                rgba(70,45,55,.08);
-
-            color: #674b55;
-
-            z-index: 2;
+                rgba(80,60,60,.08);
         }
 
+
         .paper-date {
-            text-align: right;
-
-            font-size: .8rem;
-
-            color: #9d737e;
+            position: relative;
 
             margin-bottom: 28px;
 
-            position: relative;
+            color: #927c70;
+
+            text-align: right;
+
+            font-size: .8rem;
         }
+
 
         .paper h2 {
-            font-family: Georgia, serif;
+            position: relative;
 
-            font-size: 2.1rem;
+            margin-bottom: 26px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 2.2rem;
 
             font-weight: 400;
-
-            margin-bottom: 25px;
-
-            position: relative;
         }
+
 
         .letter-text {
             position: relative;
 
-            font-family: Georgia, serif;
-
-            line-height: 2;
+            font-family:
+                Georgia,
+                serif;
 
             font-size: 1.02rem;
+
+            line-height: 2;
         }
+
 
         .letter-signature {
             position: relative;
 
-            margin-top: 35px;
+            margin-top: 38px;
 
             text-align: right;
 
+            color: #85545c;
+
             font-family:
                 "Segoe Script",
+                "Comic Sans MS",
                 cursive;
 
-            font-size: 1.2rem;
-
-            color: #b84e6c;
+            font-size: 1.22rem;
         }
 
-        /* ============================================================
+
+        /* ==========================================================
            FINAL
-        ============================================================ */
+        ========================================================== */
 
         .final-section {
-            min-height: 95vh;
+            min-height: 92vh;
 
             display: flex;
             align-items: center;
@@ -1348,100 +1833,78 @@
             text-align: center;
         }
 
-        .final-inner {
+
+        .final-content {
             width:
-                min(720px, 100%);
+                min(730px, 100%);
         }
 
-        .final-small {
-            color: var(--rosa-claro);
 
-            text-transform: uppercase;
-            letter-spacing: 4px;
+        .final-eyebrow {
+            margin-bottom: 20px;
+
+            color: var(--gold);
 
             font-size: .7rem;
 
-            margin-bottom: 20px;
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
         }
 
+
         .final-title {
-            font-family: Georgia, serif;
+            margin-bottom: 30px;
+
+            font-family:
+                Georgia,
+                serif;
 
             font-size:
                 clamp(3rem, 10vw, 7rem);
 
             font-weight: 400;
+
             line-height: .98;
 
-            margin-bottom: 30px;
+            letter-spacing: -3px;
         }
 
+
         .final-title span {
+            color: transparent;
+
             background:
                 linear-gradient(
-                    130deg,
-                    #fff,
-                    #ffabc0
+                    120deg,
+                    var(--champagne),
+                    var(--rose-soft)
                 );
 
             -webkit-background-clip: text;
             background-clip: text;
-
-            color: transparent;
         }
 
-        .final-text {
-            color:
-                rgba(255,255,255,.65);
 
-            line-height: 1.9;
-
-            max-width: 550px;
+        .final-copy {
+            width:
+                min(560px, 100%);
 
             margin:
                 0 auto 40px;
+
+            color: var(--white-soft);
+
+            line-height: 1.9;
         }
 
-        .magic-button {
-            border: none;
-
-            cursor: pointer;
-
-            padding:
-                16px 28px;
-
-            border-radius: 999px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff6d91,
-                    #c67cff
-                );
-
-            color: white;
-
-            font-size: .95rem;
-
-            box-shadow:
-                0 15px 50px
-                rgba(255,99,145,.25);
-
-            transition:
-                transform .3s ease;
-        }
-
-        .magic-button:hover {
-            transform:
-                scale(1.05)
-                translateY(-2px);
-        }
 
         .secret-message {
-            margin-top: 30px;
-
             max-height: 0;
+
             overflow: hidden;
+
+            margin-top: 30px;
 
             opacity: 0;
 
@@ -1450,64 +1913,76 @@
                 opacity .8s ease;
         }
 
+
         .secret-message.show {
-            max-height: 300px;
+            max-height: 400px;
+
             opacity: 1;
         }
 
+
         .secret-message p {
-            font-family: Georgia, serif;
+            color: var(--champagne);
+
+            font-family:
+                Georgia,
+                serif;
 
             font-size:
-                clamp(1.3rem, 4vw, 2rem);
+                clamp(1.4rem, 4vw, 2.2rem);
 
-            line-height: 1.5;
-
-            color: #ffd2dd;
+            line-height: 1.55;
         }
 
-        /* ============================================================
+
+        /* ==========================================================
            FOOTER
-        ============================================================ */
+        ========================================================== */
 
         footer {
+            padding:
+                30px 20px 48px;
+
             text-align: center;
 
-            padding:
-                30px 20px 45px;
-
-            font-size: .75rem;
-
             color:
-                rgba(255,255,255,.35);
+                rgba(255,248,238,.33);
+
+            font-size: .74rem;
+
+            line-height: 1.8;
         }
 
-        /* ============================================================
-           CORAZONES GENERADOS POR JS
-        ============================================================ */
 
-        .floating-heart {
+        /* ==========================================================
+           CORAZONES / PARTÍCULAS
+        ========================================================== */
+
+        .floating-particle {
             position: fixed;
-
-            pointer-events: none;
 
             z-index: 99999;
 
-            animation:
-                flyHeart var(--duration)
-                ease-out forwards;
+            pointer-events: none;
 
-            font-size:
-                var(--size);
+            font-size: var(--size);
+
+            animation:
+                particleFly
+                var(--duration)
+                ease-out forwards;
         }
 
-        @keyframes flyHeart {
+
+        @keyframes particleFly {
+
             0% {
                 opacity: 0;
+
                 transform:
-                    translateY(0)
-                    scale(.4)
-                    rotate(0deg);
+                    translate(0,0)
+                    scale(.45)
+                    rotate(0);
             }
 
             15% {
@@ -1519,17 +1994,19 @@
 
                 transform:
                     translate(
-                        var(--moveX),
+                        var(--move-x),
                         -220px
                     )
-                    scale(1.3)
-                    rotate(var(--rotate));
+                    scale(1.25)
+                    rotate(var(--rotation));
             }
+
         }
 
-        /* ============================================================
-           ANIMACIÓN DE ENTRADA DE SECCIONES
-        ============================================================ */
+
+        /* ==========================================================
+           REVEAL
+        ========================================================== */
 
         .reveal {
             opacity: 0;
@@ -1542,70 +2019,83 @@
                 transform .9s ease;
         }
 
+
         .reveal.visible {
             opacity: 1;
-            transform: translateY(0);
+
+            transform:
+                translateY(0);
         }
 
-        /* ============================================================
+
+        /* ==========================================================
            SCROLLBAR
-        ============================================================ */
+        ========================================================== */
 
         ::-webkit-scrollbar {
             width: 8px;
         }
 
+
         ::-webkit-scrollbar-track {
-            background: #0d0912;
+            background: #061411;
         }
+
 
         ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+
             background:
                 linear-gradient(
-                    #d66f91,
-                    #8d65ba
+                    var(--green-soft),
+                    var(--rose)
                 );
-
-            border-radius: 10px;
         }
 
-        /* ============================================================
+
+        /* ==========================================================
            RESPONSIVE
-        ============================================================ */
+        ========================================================== */
 
-        @media (max-width: 800px) {
+        @media(max-width: 800px) {
 
-            nav {
+            .nav {
                 top: 10px;
-                padding-left: 15px;
             }
+
 
             .nav-links {
                 display: none;
             }
 
+
             .hero h1 {
                 letter-spacing: -2px;
             }
+
 
             .gallery-grid {
                 grid-template-columns:
                     repeat(2, 1fr);
             }
 
+
             .timeline::before {
                 left: 10px;
             }
 
+
             .timeline-item,
             .timeline-item:nth-child(even) {
                 width: 100%;
+
                 margin-left: 0;
 
                 padding:
                     0 0
                     45px 38px;
             }
+
 
             .timeline-dot,
             .timeline-item:nth-child(even)
@@ -1615,63 +2105,86 @@
 
                 top: 18px;
             }
+
         }
 
-        @media (max-width: 540px) {
+
+        @media(max-width: 540px) {
 
             section {
                 padding:
-                    85px 18px;
+                    88px 18px;
             }
+
 
             .hero {
                 padding-top: 130px;
             }
+
 
             .countdown {
                 grid-template-columns:
                     repeat(2, 1fr);
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr;
 
-                width: min(330px, 90%);
+            .gallery-grid {
+                width:
+                    min(330px, 92%);
+
+                grid-template-columns: 1fr;
             }
+
 
             .polaroid {
-                margin-bottom: 12px;
+                margin-bottom: 8px;
             }
 
+
             .reason-card {
+                min-height: 330px;
+
                 padding:
-                    35px 22px;
+                    35px 23px;
             }
+
 
             .paper {
                 padding:
-                    48px 25px
+                    50px 25px
                     40px;
             }
+
 
             .paper h2 {
                 font-size: 1.8rem;
             }
 
+
             .letter-text {
-                font-size: .95rem;
+                font-size: .96rem;
             }
+
 
             .intro h1 {
-                font-size: 3.1rem;
+                font-size: 3rem;
             }
+
+
+            .heart-stage {
+                height: 95px;
+            }
+
+
+            .hero-heart {
+                width: 70px;
+                height: 70px;
+            }
+
         }
 
-        /* ============================================================
-           REDUCIR ANIMACIONES SI EL DISPOSITIVO LO PIDE
-        ============================================================ */
 
-        @media (
+        @media(
             prefers-reduced-motion:
             reduce
         ) {
@@ -1679,6 +2192,8 @@
             *,
             *::before,
             *::after {
+                scroll-behavior: auto !important;
+
                 animation-duration:
                     .01ms !important;
 
@@ -1688,12 +2203,16 @@
                 transition-duration:
                     .01ms !important;
             }
+
         }
+
     </style>
+
 </head>
 
 
 <body class="no-scroll">
+
 
     <!-- ============================================================
          FONDO
@@ -1705,6 +2224,8 @@
         class="ambient-light"
         id="ambientLight"
     ></div>
+
+    <div class="background-grain"></div>
 
 
     <!-- ============================================================
@@ -1718,31 +2239,55 @@
 
         <div class="intro-content">
 
-            <div class="tiny-text">
+
+            <div class="intro-date">
+
+                <span></span>
+
                 29 · 09 · 2026
+
             </div>
+
 
             <h1>
-                Hice algo
-                <span>para ti.</span>
+
+                Esto es para
+                <br>
+
+                <em>
+                    usted, mi amor.
+                </em>
+
             </h1>
 
+
             <p>
-                No sabía cómo meter todo lo que significan
-                estos meses para mí dentro de una caja,
-                así que decidí guardarlo aquí.
+
+                Quería darle algo diferente por nuestros
+                tres meses. Algo pequeño, pero hecho con
+                muchísimo cariño y pensando en usted.
+
             </p>
 
+
             <button
-                class="open-button"
+                class="main-button"
                 id="openPage"
             >
-                Abrir mi regalo ♡
+
+                Abrir su regalo
+
+                <span>
+                    ♡
+                </span>
+
             </button>
 
-            <div class="small-heart">
+
+            <div class="intro-heart">
                 ♡
             </div>
+
 
         </div>
 
@@ -1750,12 +2295,9 @@
 
 
     <!-- ============================================================
-         MÚSICA OPCIONAL
+         MÚSICA
 
-         Coloca un archivo llamado:
-         cancion.mp3
-
-         en la misma carpeta que index.html
+         Coloque "cancion.mp3" junto al index.html
     ============================================================= -->
 
     <audio
@@ -1763,31 +2305,41 @@
         loop
         preload="auto"
     >
+
         <source
             src="cancion.mp3"
             type="audio/mpeg"
         >
+
     </audio>
 
 
     <!-- ============================================================
-         NAVEGACIÓN
+         NAV
     ============================================================= -->
 
-    <nav>
+    <nav class="nav">
 
-        <div class="nav-logo">
-            Tú + Yo ♡
+
+        <div class="nav-brand">
+
+            Mel ♡ Fer
+
         </div>
+
 
         <div class="nav-links">
 
-            <a href="#historia">
+            <a href="#nosotros">
                 Nosotros
             </a>
 
             <a href="#recuerdos">
                 Recuerdos
+            </a>
+
+            <a href="#razones">
+                Usted
             </a>
 
             <a href="#carta">
@@ -1796,13 +2348,16 @@
 
         </div>
 
+
         <button
             class="music-button"
             id="musicButton"
-            title="Música"
+            title="Reproducir música"
+            aria-label="Reproducir música"
         >
             ♪
         </button>
+
 
     </nav>
 
@@ -1813,7 +2368,9 @@
 
     <section class="hero">
 
+
         <div class="hero-inner">
+
 
             <div class="hero-badge">
 
@@ -1824,13 +2381,96 @@
             </div>
 
 
-            <div class="heart-wrapper">
+            <!-- CORAZÓN SVG BIEN FORMADO -->
 
-                <div
-                    class="heart"
-                    id="mainHeart"
-                    title="Tócame ♡"
-                ></div>
+            <div class="heart-stage">
+
+
+                <button
+                    class="heart-button"
+                    id="mainHeartButton"
+                    aria-label="Corazón"
+                >
+
+
+                    <svg
+                        class="hero-heart"
+                        viewBox="0 0 100 92"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+
+
+                        <defs>
+
+                            <linearGradient
+                                id="heartGradient"
+                                x1="0"
+                                y1="0"
+                                x2="1"
+                                y2="1"
+                            >
+
+                                <stop
+                                    offset="0%"
+                                    stop-color="#f1c6c9"
+                                />
+
+                                <stop
+                                    offset="50%"
+                                    stop-color="#d8a0a7"
+                                />
+
+                                <stop
+                                    offset="100%"
+                                    stop-color="#c8aa73"
+                                />
+
+                            </linearGradient>
+
+                        </defs>
+
+
+                        <path
+
+                            d="
+                                M50 86
+                                C46 82 10 58 10 31
+                                C10 16 21 6 35 6
+                                C43 6 49 10 50 17
+                                C51 10 57 6 65 6
+                                C79 6 90 16 90 31
+                                C90 58 54 82 50 86
+                                Z
+                            "
+
+                            fill="url(#heartGradient)"
+
+                        />
+
+
+                        <path
+
+                            d="
+                                M31 14
+                                C22 17 17 24 17 33
+                            "
+
+                            fill="none"
+
+                            stroke="rgba(255,255,255,.40)"
+
+                            stroke-width="3"
+
+                            stroke-linecap="round"
+
+                        />
+
+
+                    </svg>
+
+
+                </button>
+
 
             </div>
 
@@ -1843,20 +2483,21 @@
 
                 <br>
 
-                contigo.
+                con usted.
 
             </h1>
 
 
             <p class="hero-subtitle">
 
-                Hay personas que llegan a nuestra vida
-                sin hacer ruido y terminan convirtiéndose
-                en una de nuestras partes favoritas.
+                Mel, no sé cómo explicarle exactamente
+                cuánto me gusta compartir mis días con usted.
 
                 <br><br>
 
-                Tú eres una de ellas.
+                Solo sé que estos tres meses han sido
+                mucho más bonitos porque usted ha estado
+                en ellos, mi amor.
 
             </p>
 
@@ -1864,6 +2505,7 @@
             <!-- CONTADOR -->
 
             <div class="countdown">
+
 
                 <div class="count-card">
 
@@ -1928,12 +2570,15 @@
 
                 </div>
 
+
             </div>
 
 
             <div id="anniversaryMessage"></div>
 
+
         </div>
+
 
     </section>
 
@@ -1943,82 +2588,111 @@
     ============================================================= -->
 
     <section
-        class="three-months reveal"
-        id="historia"
+        class="three-section reveal"
+        id="nosotros"
     >
+
 
         <div class="container">
 
-            <div class="big-number-section">
+
+            <div class="three-content-wrapper">
+
 
                 <div class="big-three">
                     3
                 </div>
 
-                <div class="three-content">
+
+                <div class="three-copy">
+
 
                     <div class="section-label">
-                        Junio — Septiembre
+
+                        Mel & Fer
+
                     </div>
 
+
                     <h2>
-                        Parece poco.
+
+                        Tres meses pueden
+                        parecer poco.
+
                         <br>
-                        Se siente enorme.
+
+                        Pero con usted
+                        han significado mucho.
+
                     </h2>
+
 
                     <p>
 
-                        Tres meses no son una vida entera,
-                        pero han sido suficientes para llenar
-                        mis días de conversaciones,
-                        risas, momentos inesperados
-                        y recuerdos que ya tienen
-                        un lugar especial en mí.
+                        Han sido tres meses de conocerla más,
+                        de descubrir pequeños detalles suyos,
+                        de compartir conversaciones,
+                        risas y momentos que poco a poco
+                        se han vuelto importantes para mí.
 
                         <br><br>
 
-                        Y entre todos esos momentos,
-                        mi parte favorita sigue siendo
-                        la misma:
+                        Me gusta lo que hemos construido.
+
+                        Me gusta cómo me siento con usted.
+
+                        Y sobre todo,
 
                         <strong>
-                            compartirlos contigo.
+                            me gusta que sea precisamente usted.
                         </strong>
 
                     </p>
 
+
                 </div>
+
 
             </div>
 
+
         </div>
+
 
     </section>
 
 
     <!-- ============================================================
-         NUESTRA PEQUEÑA HISTORIA
+         HISTORIA
     ============================================================= -->
 
     <section class="reveal">
 
+
         <div class="container">
 
+
             <div class="section-label">
+
                 Nuestra pequeña historia
+
             </div>
 
+
             <h2 class="section-title">
+
                 Un poquito de nosotros
+
             </h2>
+
 
             <p class="section-description">
 
-                No quiero medir lo nuestro solamente
-                en días. Prefiero medirlo en todas esas
-                pequeñas cosas que poco a poco se han
-                convertido en recuerdos.
+                Quizá el calendario solamente vea fechas.
+
+                Yo veo momentos, conversaciones,
+                aprendizajes y muchas cosas bonitas
+                que hemos ido compartiendo.
 
             </p>
 
@@ -2026,120 +2700,183 @@
             <div class="timeline">
 
 
+                <!-- INICIO -->
+
                 <div class="timeline-item">
+
 
                     <div class="timeline-dot"></div>
 
+
                     <div class="timeline-card">
 
+
                         <div class="timeline-date">
+
                             29 de junio
+
                         </div>
 
+
                         <h3>
-                            Donde empezó todo
+
+                            Aquí empezó lo nuestro
+
                         </h3>
 
+
                         <p>
-                            El día que oficialmente comenzó
-                            esta historia. Quizá en ese momento
-                            no imaginábamos todas las cosas
-                            bonitas que vendrían después.
+
+                            El comienzo oficial de esta historia.
+                            En ese momento todavía no sabía cuánto
+                            iba a disfrutar tenerla en mi vida.
+
                         </p>
 
+
                     </div>
+
 
                 </div>
 
 
+                <!-- MES 1 -->
+
                 <div class="timeline-item">
+
 
                     <div class="timeline-dot"></div>
 
+
                     <div class="timeline-card">
 
+
                         <div class="timeline-date">
+
                             29 de julio
+
                         </div>
 
+
                         <h3>
+
                             Nuestro primer mes
+
                         </h3>
 
+
                         <p>
-                            Un mes descubriéndonos un poquito
-                            más, aprendiendo nuestras formas
-                            de ser y creando nuestros primeros
-                            recuerdos juntos.
+
+                            Un mes conociéndonos un poquito más,
+                            aprendiendo nuestras formas de ser
+                            y comenzando a crear recuerdos
+                            de usted y yo.
+
                         </p>
 
+
                     </div>
+
 
                 </div>
 
 
+                <!-- MES 2 -->
+
                 <div class="timeline-item">
+
 
                     <div class="timeline-dot"></div>
 
+
                     <div class="timeline-card">
 
+
                         <div class="timeline-date">
+
                             29 de agosto
+
                         </div>
 
+
                         <h3>
+
                             Dos meses
+
                         </h3>
 
+
                         <p>
-                            Ya no era solamente el comienzo.
-                            Poco a poco aparecieron nuestras
-                            bromas, nuestras costumbres y esas
-                            pequeñas cosas que solo nosotros
-                            entendemos.
+
+                            Para entonces ya existían más historias,
+                            más confianza, más cariño y esas pequeñas
+                            cosas que hacen que una relación
+                            comience a sentirse nuestra.
+
                         </p>
 
+
                     </div>
+
 
                 </div>
 
 
+                <!-- MES 3 -->
+
                 <div class="timeline-item">
+
 
                     <div class="timeline-dot"></div>
 
+
                     <div class="timeline-card">
 
+
                         <div class="timeline-date">
+
                             29 de septiembre
+
                         </div>
 
+
                         <h3>
-                            Tres meses ♡
+
+                            Tres meses, mi amor ♡
+
                         </h3>
 
+
                         <p>
-                            Y aquí estamos. Todavía escribiendo
-                            esta historia, sin saber exactamente
-                            qué páginas vienen después, pero
-                            feliz de poder descubrirlas contigo.
+
+                            Y aquí estamos.
+
+                            Mel y Fer.
+
+                            Celebrando tres meses y todavía
+                            con muchísimas cosas bonitas
+                            por vivir, conocer y recordar.
+
                         </p>
 
+
                     </div>
+
 
                 </div>
 
 
             </div>
 
+
         </div>
+
 
     </section>
 
 
     <!-- ============================================================
-         GALERÍA
+         FOTOS
     ============================================================= -->
 
     <section
@@ -2147,22 +2884,30 @@
         id="recuerdos"
     >
 
+
         <div class="container">
 
+
             <div class="section-label">
-                Pequeños momentos
+
+                Recuerdos
+
             </div>
 
+
             <h2 class="section-title">
-                Mis recuerdos favoritos
+
+                Momentos con usted
+
             </h2>
+
 
             <p class="section-description">
 
-                Porque hay fotografías que no solo guardan
-                una imagen. Guardan una conversación,
-                una risa, un lugar y una versión nuestra
-                que existió exactamente en ese momento.
+                Algunas fotos son bonitas por cómo se ven.
+
+                Estas lo son por la persona que está en ellas
+                y por todo lo que me hacen recordar.
 
             </p>
 
@@ -2170,111 +2915,149 @@
             <div class="gallery-grid">
 
 
+                <!-- FOTO 1 -->
+
                 <div
                     class="polaroid"
                     style="--rotation: -3deg;"
                 >
 
+
                     <div class="photo-wrapper">
 
+
                         <img
+
                             src="img/foto1.jpg"
-                            alt="Nuestro recuerdo 1"
+
+                            alt="Mel y Fer"
 
                             onerror="
                                 this.style.display='none';
                                 this.nextElementSibling.style.display='flex';
                             "
+
                         >
 
-                        <div
-                            class="photo-placeholder"
-                            style="display:none;"
-                        >
+
+                        <div class="photo-placeholder">
+
                             Aquí va una de
                             nuestras fotos ♡
+
                         </div>
 
+
                     </div>
 
-                    <div class="polaroid-text">
-                        nosotros ♡
+
+                    <div class="polaroid-caption">
+
+                        usted y yo ♡
+
                     </div>
+
 
                 </div>
 
+
+                <!-- FOTO 2 -->
 
                 <div
                     class="polaroid"
                     style="--rotation: 2deg;"
                 >
 
+
                     <div class="photo-wrapper">
 
+
                         <img
+
                             src="img/foto2.jpg"
-                            alt="Nuestro recuerdo 2"
+
+                            alt="Mel y Fer"
 
                             onerror="
                                 this.style.display='none';
                                 this.nextElementSibling.style.display='flex';
                             "
+
                         >
 
-                        <div
-                            class="photo-placeholder"
-                            style="display:none;"
-                        >
-                            Otro momento
-                            bonito juntos ♡
+
+                        <div class="photo-placeholder">
+
+                            Otro recuerdo
+                            bonito con usted ♡
+
                         </div>
 
+
                     </div>
 
-                    <div class="polaroid-text">
-                        un día bonito
+
+                    <div class="polaroid-caption">
+
+                        mi amor
+
                     </div>
+
 
                 </div>
 
 
+                <!-- FOTO 3 -->
+
                 <div
                     class="polaroid"
-                    style="--rotation: -1deg;"
+                    style="--rotation: -1.5deg;"
                 >
+
 
                     <div class="photo-wrapper">
 
+
                         <img
+
                             src="img/foto3.jpg"
-                            alt="Nuestro recuerdo 3"
+
+                            alt="Mel y Fer"
 
                             onerror="
                                 this.style.display='none';
                                 this.nextElementSibling.style.display='flex';
                             "
+
                         >
 
-                        <div
-                            class="photo-placeholder"
-                            style="display:none;"
-                        >
-                            Y aquí otra
-                            fotito nuestra ♡
+
+                        <div class="photo-placeholder">
+
+                            Otra fotito
+                            de Mel y Fer ♡
+
                         </div>
 
+
                     </div>
 
-                    <div class="polaroid-text">
-                        tú y yo
+
+                    <div class="polaroid-caption">
+
+                        Mel & Fer
+
                     </div>
+
 
                 </div>
 
 
             </div>
 
+
         </div>
+
 
     </section>
 
@@ -2285,87 +3068,130 @@
 
     <section class="quote-section reveal">
 
+
         <div class="quote">
 
-            <div class="quote-symbol">
+
+            <div class="quote-mark">
                 “
             </div>
 
+
             <p>
-                De todos los lugares
-                en los que podría estar,
-                me gusta coincidir contigo.
+
+                De todas las casualidades bonitas
+                que podían pasarme,
+
+                me alegra muchísimo
+                haber coincidido con usted.
+
             </p>
 
+
         </div>
+
 
     </section>
 
 
     <!-- ============================================================
-         MOTIVOS
+         RAZONES
     ============================================================= -->
 
-    <section class="reveal">
+    <section
+        class="reveal"
+        id="razones"
+    >
+
 
         <div class="container">
 
+
             <div class="section-label">
-                Algunas razones
+
+                Cosas que adoro de usted
+
             </div>
 
+
             <h2 class="section-title">
-                Cosas que me encantan de ti
+
+                8 razones
+
             </h2>
+
 
             <p class="section-description">
 
-                Serían demasiadas para meterlas todas aquí,
-                pero podemos empezar con algunas.
+                Podría escribir muchas más.
+
+                Pero estas son algunas de las cosas
+                que hacen que usted sea tan especial para mí.
 
             </p>
 
 
-            <div class="reasons-container">
+            <div class="reasons-wrapper">
+
 
                 <div class="reason-card">
+
 
                     <div
                         class="reason-number"
                         id="reasonNumber"
                     >
-                        Razón 01
+                        Razón 01 de 08
                     </div>
 
+
                     <div id="reasonText">
-                        Tu manera de hacer que un día normal
-                        pueda sentirse especial.
+
+                        Su sonrisa.
+                        Porque cuando sonríe tiene una manera
+                        muy bonita de alegrarme también a mí.
+
                     </div>
+
 
                 </div>
 
 
                 <div class="reason-controls">
 
+
                     <button
-                        class="round-button"
+                        class="reason-button"
                         id="prevReason"
+                        aria-label="Razón anterior"
                     >
                         ←
                     </button>
 
+
                     <button
-                        class="round-button"
+                        class="reason-button"
                         id="nextReason"
+                        aria-label="Razón siguiente"
                     >
                         →
                     </button>
 
+
                 </div>
+
+
+                <div
+                    class="reason-dots"
+                    id="reasonDots"
+                ></div>
+
 
             </div>
 
+
         </div>
+
 
     </section>
 
@@ -2375,23 +3201,33 @@
     ============================================================= -->
 
     <section
-        class="letter-area reveal"
+        class="letter-section reveal"
         id="carta"
     >
 
+
         <div class="container">
 
+
             <div class="section-label">
-                Hay algo más
+
+                Una cosa más
+
             </div>
 
+
             <h2 class="section-title">
-                Una carta para ti
+
+                Una carta para usted
+
             </h2>
 
+
             <p class="section-description">
-                Algunas cosas se sienten mejor
-                cuando se dicen despacio.
+
+                Porque hay cosas que no quería dejar
+                solamente en una frase.
+
             </p>
 
 
@@ -2400,22 +3236,28 @@
                 id="envelope"
             >
 
-                <div class="envelope-body"></div>
+
+                <div class="envelope-back"></div>
 
                 <div class="envelope-flap"></div>
 
-                <div class="wax-seal">
+                <div class="seal">
                     ♡
                 </div>
+
 
             </div>
 
 
             <div class="letter-hint">
-                Toca la carta para abrirla
+
+                Toque la carta para abrirla
+
             </div>
 
+
         </div>
+
 
     </section>
 
@@ -2426,42 +3268,55 @@
 
     <section class="final-section reveal">
 
-        <div class="final-inner">
 
-            <div class="final-small">
-                Y antes de terminar...
+        <div class="final-content">
+
+
+            <div class="final-eyebrow">
+
+                29 · 09 · 2026
+
             </div>
 
 
             <h2 class="final-title">
 
                 Feliz
+
                 <span>
-                    3 meses.
+                    3 meses,
+                    mi amor.
                 </span>
 
             </h2>
 
 
-            <p class="final-text">
+            <p class="final-copy">
 
-                No sé exactamente qué traerán
-                los siguientes meses.
+                Gracias por estos meses,
+                por su cariño, por su forma de ser
+                y por cada pequeño momento que hemos compartido.
 
-                Pero sí sé que me alegra muchísimo
-                haber vivido estos tres contigo.
+                <br><br>
 
-                Gracias por cada momento,
-                cada conversación y cada sonrisa.
+                Espero que esto le recuerde
+                aunque sea un poquito de todo
+                lo bonita que usted es para mí.
 
             </p>
 
 
             <button
-                class="magic-button"
+                class="main-button"
                 id="magicButton"
             >
-                Una última cosita ♡
+
+                Una última cosita
+
+                <span>
+                    ♡
+                </span>
+
             </button>
 
 
@@ -2470,20 +3325,25 @@
                 id="secretMessage"
             >
 
+
                 <p>
 
-                    Si pudiera volver al inicio
-                    sabiendo todo lo que sé ahora...
+                    Si pudiera volver al comienzo
+                    sabiendo todo lo que sé hoy...
 
                     <br><br>
 
-                    volvería a escogerte. ♡
+                    volvería a elegir coincidir
+                    con usted, Mel. ♡
 
                 </p>
 
+
             </div>
 
+
         </div>
+
 
     </section>
 
@@ -2494,8 +3354,14 @@
 
     <footer>
 
-        Hecho con muchísimo cariño ♡
+        Hecho con muchísimo cariño para Mel ♡
+
+        <br>
+
+        De Fer
+
         <br><br>
+
         29 · 09 · 2026
 
     </footer>
@@ -2510,122 +3376,145 @@
         id="letterModal"
     >
 
+
         <div class="paper">
+
 
             <button
                 class="close-letter"
                 id="closeLetter"
+                aria-label="Cerrar carta"
             >
                 ✕
             </button>
 
 
             <div class="paper-date">
+
                 29 de septiembre de 2026
+
             </div>
 
 
             <h2>
-                Para ti ♡
+
+                Para usted, mi amor ♡
+
             </h2>
 
 
             <div class="letter-text">
 
-                Quería hacer algo distinto para nuestros
-                tres meses.
+                Mel:
 
                 <br><br>
 
-                Y mientras pensaba qué podía regalarte,
-                me di cuenta de que ninguna cosa podía
-                guardar exactamente todos los pequeños
-                momentos que hemos vivido desde que
-                empezamos.
+                Quería hacerle algo diferente
+                por nuestros tres meses.
+
+                Algo que pudiera guardar un poquito
+                de todo lo que este tiempo
+                ha significado para mí.
 
                 <br><br>
 
-                Estos meses han tenido risas,
-                conversaciones, momentos inesperados,
-                días bonitos y seguramente alguna que
-                otra pequeña locura.
+                Me gusta muchísimo la persona que usted es.
 
-                Y entre todo eso, poco a poco fuiste
-                convirtiéndote en alguien muy especial
-                para mí.
+                Me gusta su sonrisa,
+                sus ojitos y esa ternura
+                que tiene en tantas cosas.
 
                 <br><br>
 
-                Me gusta que nuestra historia todavía
-                sea joven. Que todavía tengamos tantos
-                lugares por conocer, tantas fotografías
-                por tomar y tantos recuerdos que todavía
-                ni siquiera sabemos que vamos a crear.
+                Admiro lo leal que es,
+                lo inteligente que es
+                y esa forma tan bonita que tiene
+                de cuidar a las personas que quiere.
 
                 <br><br>
 
-                No quiero prometer historias perfectas.
+                Me encanta también lo hogareña que es.
 
-                Solo quiero seguir construyendo
-                momentos reales, bonitos y nuestros.
-
-                <br><br>
-
-                Así que hoy solamente quería decirte:
+                Esa manera suya de transmitir calma,
+                cariño y una sensación bonita
+                de estar donde uno quiere estar.
 
                 <br><br>
 
-                gracias por estos tres meses.
+                Y me gusta cómo me trata.
 
-                <br>
+                Lo amorosa que puede ser conmigo,
+                los detalles que tiene
+                y todas esas cosas pequeñas
+                que quizá usted no nota,
+                pero que yo sí recuerdo.
 
-                Gracias por ser tú.
+                <br><br>
 
-                <br>
+                Estos tres meses no tienen que haber sido
+                perfectos para ser especiales.
 
-                Y gracias por compartir un pedacito
-                de tu vida conmigo. ♡
+                Para mí lo especial ha sido
+                conocerla más,
+                compartir con usted
+                y ver cómo poco a poco
+                hemos ido construyendo algo nuestro.
+
+                <br><br>
+
+                Gracias por cada conversación.
+
+                Gracias por cada sonrisa.
+
+                Gracias por su cariño.
+
+                Y gracias por permitirme
+                compartir esta parte de mi vida con usted.
+
+                <br><br>
+
+                Feliz 3 meses, mi amor.
+
+                Espero que todavía nos queden
+                muchísimos momentos bonitos
+                que un día podamos recordar
+                con la misma sonrisa con la que
+                hoy recuerdo estos primeros meses.
 
             </div>
 
 
             <div class="letter-signature">
 
-                Con cariño,
+                Con muchísimo cariño,
+
                 <br>
-                [Tu nombre] ♡
+
+                Fer ♡
 
             </div>
 
+
         </div>
+
 
     </div>
 
 
+    <!-- ============================================================
+         JAVASCRIPT
+    ============================================================= -->
+
     <script>
 
-        /* ============================================================
-           CONFIGURACIÓN PRINCIPAL
 
-           CAMBIA AQUÍ LAS COSAS PERSONALES.
-        ============================================================ */
+        /* ==========================================================
+           CONFIGURACIÓN
+        ========================================================== */
 
         const CONFIG = {
 
-            /*
-             * Fecha en la que comenzaron.
-             * Año, mes - 1, día.
-             *
-             * Junio = 5 porque JavaScript
-             * empieza los meses desde 0.
-             */
-            fechaInicio:
-                new Date(2026, 5, 29),
 
-            /*
-             * Fecha de los tres meses.
-             * Septiembre = 8.
-             */
             aniversario:
                 new Date(
                     2026,
@@ -2636,76 +3525,203 @@
                     0
                 ),
 
-            /*
-             * Motivos que aparecerán
-             * en el carrusel.
-             */
+
             razones: [
 
-                "Tu manera de hacer que un día normal pueda sentirse especial.",
 
-                "Tu sonrisa, porque tiene una facilidad increíble para contagiarme.",
+                `Su sonrisa.
+                Porque cuando sonríe tiene una manera
+                muy bonita de alegrarme también a mí.`,
 
-                "La confianza que poco a poco hemos construido entre los dos.",
 
-                "Nuestras conversaciones, incluso esas que empiezan hablando de algo y terminan en cualquier cosa.",
+                `Sus ojitos.
+                Porque tienen algo tan bonito
+                que podría quedarme viéndolos
+                mucho más tiempo del que admitiría.`,
 
-                "Tu forma de ser tú, incluso en esos pequeños detalles que quizá ni siquiera notas.",
 
-                "Todos esos momentos en los que terminamos riéndonos por alguna tontería.",
+                `Lo leal que es.
+                Para mí la lealtad vale muchísimo,
+                y es una de esas cosas de usted
+                que realmente admiro.`,
 
-                "La tranquilidad de saber que puedo compartir contigo lo que pienso.",
 
-                "La ilusión de imaginar todos los recuerdos que todavía nos faltan por crear.",
+                `Lo tierna que es.
+                Esa ternura que aparece
+                en sus palabras, en sus detalles
+                y en tantas pequeñas cosas que hace.`,
 
-                "La persona que eres y todo lo que sigo descubriendo de ti.",
 
-                "Y principalmente… que seas precisamente tú."
+                `Lo inteligente que es.
+                Me gusta escucharla,
+                conocer su forma de pensar
+                y seguir descubriendo todo
+                lo que hay dentro de esa cabecita suya.`,
+
+
+                `Lo hogareña que es.
+                Usted tiene una manera especial
+                de hacer que lo sencillo se sienta
+                cálido, tranquilo y bonito.`,
+
+
+                `Lo amorosa que es.
+                Me encanta sentir su cariño,
+                sus detalles y esa forma tan suya
+                de hacerme sentir querido.`,
+
+
+                `Usted completa.
+                Su manera de ser,
+                sus virtudes, sus ocurrencias
+                y todos esos detalles que hacen
+                que Mel sea simplemente Mel,
+                mi amor.`
+
 
             ]
+
 
         };
 
 
-        /* ============================================================
-           INTRO
-        ============================================================ */
+        /* ==========================================================
+           ELEMENTOS
+        ========================================================== */
 
         const intro =
-            document.getElementById("intro");
+            document.getElementById(
+                "intro"
+            );
+
 
         const openPage =
-            document.getElementById("openPage");
+            document.getElementById(
+                "openPage"
+            );
 
+
+        const music =
+            document.getElementById(
+                "backgroundMusic"
+            );
+
+
+        const musicButton =
+            document.getElementById(
+                "musicButton"
+            );
+
+
+        const mainHeartButton =
+            document.getElementById(
+                "mainHeartButton"
+            );
+
+
+        const reasonText =
+            document.getElementById(
+                "reasonText"
+            );
+
+
+        const reasonNumber =
+            document.getElementById(
+                "reasonNumber"
+            );
+
+
+        const reasonDots =
+            document.getElementById(
+                "reasonDots"
+            );
+
+
+        const envelope =
+            document.getElementById(
+                "envelope"
+            );
+
+
+        const letterModal =
+            document.getElementById(
+                "letterModal"
+            );
+
+
+        const closeLetter =
+            document.getElementById(
+                "closeLetter"
+            );
+
+
+        const magicButton =
+            document.getElementById(
+                "magicButton"
+            );
+
+
+        const secretMessage =
+            document.getElementById(
+                "secretMessage"
+            );
+
+
+        const ambientLight =
+            document.getElementById(
+                "ambientLight"
+            );
+
+
+        let currentReason = 0;
+
+        let musicPlaying = false;
+
+
+        /* ==========================================================
+           INTRO
+        ========================================================== */
 
         openPage.addEventListener(
             "click",
             () => {
 
-                intro.classList.add("hide");
+
+                intro.classList.add(
+                    "hide"
+                );
+
 
                 document.body.classList.remove(
                     "no-scroll"
                 );
 
-                createHeartBurst(
+
+                createParticleBurst(
+
                     window.innerWidth / 2,
+
                     window.innerHeight / 2,
-                    16
+
+                    18
+
                 );
+
 
             }
         );
 
 
-        /* ============================================================
+        /* ==========================================================
            CONTADOR
-        ============================================================ */
+        ========================================================== */
 
         function updateCountdown() {
 
+
             const now =
                 new Date();
+
 
             const distance =
                 CONFIG.aniversario - now;
@@ -2719,25 +3735,29 @@
 
             if (distance <= 0) {
 
+
                 document.getElementById(
                     "days"
                 ).textContent = "♡";
+
 
                 document.getElementById(
                     "hours"
                 ).textContent = "♡";
 
+
                 document.getElementById(
                     "minutes"
                 ).textContent = "♡";
+
 
                 document.getElementById(
                     "seconds"
                 ).textContent = "♡";
 
 
-                message.innerHTML =
-                    "Hoy cumplimos nuestros 3 meses ♡";
+                message.textContent =
+                    "Hoy cumplimos nuestros 3 meses, mi amor ♡";
 
 
                 return;
@@ -2747,75 +3767,123 @@
 
             const days =
                 Math.floor(
+
                     distance /
-                    (1000 * 60 * 60 * 24)
+
+                    (
+                        1000 *
+                        60 *
+                        60 *
+                        24
+                    )
+
                 );
 
 
             const hours =
                 Math.floor(
+
                     (
                         distance %
-                        (1000 * 60 * 60 * 24)
+
+                        (
+                            1000 *
+                            60 *
+                            60 *
+                            24
+                        )
                     )
+
                     /
-                    (1000 * 60 * 60)
+
+                    (
+                        1000 *
+                        60 *
+                        60
+                    )
+
                 );
 
 
             const minutes =
                 Math.floor(
+
                     (
                         distance %
-                        (1000 * 60 * 60)
+
+                        (
+                            1000 *
+                            60 *
+                            60
+                        )
                     )
+
                     /
-                    (1000 * 60)
+
+                    (
+                        1000 *
+                        60
+                    )
+
                 );
 
 
             const seconds =
                 Math.floor(
+
                     (
                         distance %
-                        (1000 * 60)
+
+                        (
+                            1000 *
+                            60
+                        )
                     )
+
                     /
+
                     1000
+
                 );
 
 
             document.getElementById(
                 "days"
             ).textContent =
-                String(days).padStart(2, "0");
+                String(days)
+                    .padStart(2, "0");
 
 
             document.getElementById(
                 "hours"
             ).textContent =
-                String(hours).padStart(2, "0");
+                String(hours)
+                    .padStart(2, "0");
 
 
             document.getElementById(
                 "minutes"
             ).textContent =
-                String(minutes).padStart(2, "0");
+                String(minutes)
+                    .padStart(2, "0");
 
 
             document.getElementById(
                 "seconds"
             ).textContent =
-                String(seconds).padStart(2, "0");
+                String(seconds)
+                    .padStart(2, "0");
 
 
             message.textContent =
                 "para nuestro 29 ♡";
 
+
         }
 
 
         updateCountdown();
+
 
         setInterval(
             updateCountdown,
@@ -2823,40 +3891,104 @@
         );
 
 
-        /* ============================================================
-           CARRUSEL DE RAZONES
-        ============================================================ */
+        /* ==========================================================
+           RAZONES
+        ========================================================== */
 
-        const reasonText =
-            document.getElementById(
-                "reasonText"
+        function createReasonDots() {
+
+
+            reasonDots.innerHTML = "";
+
+
+            CONFIG.razones.forEach(
+                (_, index) => {
+
+
+                    const dot =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    dot.className =
+                        "reason-dot";
+
+
+                    if (index === 0) {
+
+                        dot.classList.add(
+                            "active"
+                        );
+
+                    }
+
+
+                    reasonDots.appendChild(
+                        dot
+                    );
+
+
+                }
             );
 
-        const reasonNumber =
-            document.getElementById(
-                "reasonNumber"
+
+        }
+
+
+        function updateReasonDots() {
+
+
+            const dots =
+                reasonDots.querySelectorAll(
+                    ".reason-dot"
+                );
+
+
+            dots.forEach(
+                (dot, index) => {
+
+
+                    dot.classList.toggle(
+
+                        "active",
+
+                        index === currentReason
+
+                    );
+
+
+                }
             );
 
-        let currentReason = 0;
+
+        }
 
 
         function showReason(index) {
 
-            reasonText.style.opacity = "0";
+
+            reasonText.style.opacity =
+                "0";
+
 
             reasonText.style.transform =
-                "translateY(8px)";
+                "translateY(9px)";
 
 
             setTimeout(
                 () => {
 
+
                     currentReason =
+
                         (
                             index +
                             CONFIG.razones.length
                         )
+
                         %
+
                         CONFIG.razones.length;
 
 
@@ -2867,21 +3999,41 @@
 
 
                     reasonNumber.textContent =
-                        "Razón "
-                        +
-                        String(
-                            currentReason + 1
-                        ).padStart(2, "0");
+
+                        `Razón ${
+                            String(
+                                currentReason + 1
+                            )
+                            .padStart(
+                                2,
+                                "0"
+                            )
+                        } de ${
+                            String(
+                                CONFIG.razones.length
+                            )
+                            .padStart(
+                                2,
+                                "0"
+                            )
+                        }`;
 
 
-                    reasonText.style.opacity = "1";
+                    updateReasonDots();
+
+
+                    reasonText.style.opacity =
+                        "1";
+
 
                     reasonText.style.transform =
                         "translateY(0)";
 
+
                 },
                 230
             );
+
 
         }
 
@@ -2892,9 +4044,11 @@
             "click",
             () => {
 
+
                 showReason(
                     currentReason + 1
                 );
+
 
             }
         );
@@ -2906,45 +4060,37 @@
             "click",
             () => {
 
+
                 showReason(
                     currentReason - 1
                 );
+
 
             }
         );
 
 
-        /* ============================================================
+        createReasonDots();
+
+
+        /* ==========================================================
            CARTA
-        ============================================================ */
-
-        const envelope =
-            document.getElementById(
-                "envelope"
-            );
-
-        const letterModal =
-            document.getElementById(
-                "letterModal"
-            );
-
-        const closeLetter =
-            document.getElementById(
-                "closeLetter"
-            );
-
+        ========================================================== */
 
         envelope.addEventListener(
             "click",
             () => {
 
+
                 letterModal.classList.add(
                     "show"
                 );
 
+
                 document.body.classList.add(
                     "no-scroll"
                 );
+
 
             }
         );
@@ -2952,13 +4098,16 @@
 
         function closeLetterModal() {
 
+
             letterModal.classList.remove(
                 "show"
             );
 
+
             document.body.classList.remove(
                 "no-scroll"
             );
+
 
         }
 
@@ -2973,14 +4122,18 @@
             "click",
             event => {
 
+
                 if (
                     event.target ===
                     letterModal
                 ) {
 
+
                     closeLetterModal();
 
+
                 }
+
 
             }
         );
@@ -2990,103 +4143,142 @@
             "keydown",
             event => {
 
+
                 if (
-                    event.key === "Escape"
+                    event.key ===
+                    "Escape"
                 ) {
+
 
                     closeLetterModal();
 
+
                 }
+
 
             }
         );
 
 
-        /* ============================================================
+        /* ==========================================================
            MÚSICA
-        ============================================================ */
-
-        const music =
-            document.getElementById(
-                "backgroundMusic"
-            );
-
-        const musicButton =
-            document.getElementById(
-                "musicButton"
-            );
-
-        let musicPlaying = false;
-
+        ========================================================== */
 
         musicButton.addEventListener(
             "click",
             async () => {
 
+
                 try {
+
 
                     if (!musicPlaying) {
 
+
                         await music.play();
 
+
                         musicPlaying = true;
+
 
                         musicButton.classList.add(
                             "playing"
                         );
 
+
                         musicButton.textContent =
                             "♫";
 
+
+                        musicButton.title =
+                            "Pausar música";
+
+
                     }
+
 
                     else {
 
+
                         music.pause();
 
+
                         musicPlaying = false;
+
 
                         musicButton.classList.remove(
                             "playing"
                         );
 
+
                         musicButton.textContent =
                             "♪";
 
+
+                        musicButton.title =
+                            "Reproducir música";
+
+
                     }
 
+
                 }
+
 
                 catch (error) {
 
+
                     console.log(
-                        "No se encontró cancion.mp3"
+                        "No se pudo reproducir cancion.mp3"
                     );
 
+
                 }
+
 
             }
         );
 
 
-        /* ============================================================
-           ÚLTIMO MENSAJE
-        ============================================================ */
+        /* ==========================================================
+           CORAZÓN PRINCIPAL
+        ========================================================== */
 
-        const magicButton =
-            document.getElementById(
-                "magicButton"
-            );
+        mainHeartButton.addEventListener(
+            "click",
+            event => {
 
-        const secretMessage =
-            document.getElementById(
-                "secretMessage"
-            );
 
+                const rect =
+                    event.currentTarget
+                        .getBoundingClientRect();
+
+
+                createParticleBurst(
+
+                    rect.left +
+                    rect.width / 2,
+
+                    rect.top +
+                    rect.height / 2,
+
+                    14
+
+                );
+
+
+            }
+        );
+
+
+        /* ==========================================================
+           MENSAJE FINAL
+        ========================================================== */
 
         magicButton.addEventListener(
             "click",
             event => {
+
 
                 secretMessage.classList.toggle(
                     "show"
@@ -3094,44 +4286,11 @@
 
 
                 const rect =
-                    event.target.getBoundingClientRect();
+                    event.currentTarget
+                        .getBoundingClientRect();
 
 
-                createHeartBurst(
-
-                    rect.left +
-                    rect.width / 2,
-
-                    rect.top +
-                    rect.height / 2,
-
-                    24
-
-                );
-
-            }
-        );
-
-
-        /* ============================================================
-           CORAZÓN PRINCIPAL
-        ============================================================ */
-
-        const mainHeart =
-            document.getElementById(
-                "mainHeart"
-            );
-
-
-        mainHeart.addEventListener(
-            "click",
-            event => {
-
-                const rect =
-                    event.target.getBoundingClientRect();
-
-
-                createHeartBurst(
+                createParticleBurst(
 
                     rect.left +
                     rect.width / 2,
@@ -3139,29 +4298,44 @@
                     rect.top +
                     rect.height / 2,
 
-                    12
+                    25
 
                 );
+
 
             }
         );
 
 
-        /* ============================================================
-           CREAR EXPLOSIÓN DE CORAZONES
-        ============================================================ */
+        /* ==========================================================
+           PARTÍCULAS
+        ========================================================== */
 
-        function createHeartBurst(
+        function createParticleBurst(
             x,
             y,
-            amount = 10
+            amount = 12
         ) {
 
-            const hearts = [
+
+            const particles = [
+
                 "♡",
                 "♥",
                 "✦",
+                "·",
                 "♡"
+
+            ];
+
+
+            const colors = [
+
+                "#f1c6c9",
+                "#d8a0a7",
+                "#ead8b7",
+                "#c8aa73"
+
             ];
 
 
@@ -3171,128 +4345,165 @@
                 i++
             ) {
 
-                const heart =
+
+                const particle =
                     document.createElement(
                         "div"
                     );
 
 
-                heart.className =
-                    "floating-heart";
+                particle.className =
+                    "floating-particle";
 
 
-                heart.textContent =
-                    hearts[
+                particle.textContent =
+
+                    particles[
                         Math.floor(
-                            Math.random()
-                            *
-                            hearts.length
+                            Math.random() *
+                            particles.length
                         )
                     ];
 
 
-                heart.style.left =
+                particle.style.left =
                     x + "px";
 
-                heart.style.top =
+
+                particle.style.top =
                     y + "px";
 
 
-                heart.style.color =
-                    Math.random() > .5
-                        ? "#ff8eaa"
-                        : "#e6c1ff";
+                particle.style.color =
+
+                    colors[
+                        Math.floor(
+                            Math.random() *
+                            colors.length
+                        )
+                    ];
 
 
-                heart.style.setProperty(
+                particle.style.setProperty(
+
                     "--size",
 
                     (
-                        12 +
-                        Math.random() * 18
+                        11 +
+                        Math.random() *
+                        19
                     )
                     + "px"
+
                 );
 
 
-                heart.style.setProperty(
+                particle.style.setProperty(
+
                     "--duration",
 
                     (
-                        1.5 +
-                        Math.random()
+                        1.45 +
+                        Math.random() *
+                        1.1
                     )
                     + "s"
+
                 );
 
 
-                heart.style.setProperty(
-                    "--moveX",
+                particle.style.setProperty(
+
+                    "--move-x",
 
                     (
-                        -90 +
-                        Math.random() * 180
+                        -105 +
+                        Math.random() *
+                        210
                     )
                     + "px"
+
                 );
 
 
-                heart.style.setProperty(
-                    "--rotate",
+                particle.style.setProperty(
+
+                    "--rotation",
 
                     (
-                        -120 +
-                        Math.random() * 240
+                        -130 +
+                        Math.random() *
+                        260
                     )
                     + "deg"
+
                 );
 
 
                 document.body.appendChild(
-                    heart
+                    particle
                 );
 
 
                 setTimeout(
-                    () => heart.remove(),
-                    2800
+                    () => {
+
+
+                        particle.remove();
+
+
+                    },
+                    3000
                 );
 
+
             }
+
 
         }
 
 
-        /* ============================================================
+        /* ==========================================================
            ANIMACIONES AL HACER SCROLL
-        ============================================================ */
+        ========================================================== */
 
         const observer =
             new IntersectionObserver(
 
+
                 entries => {
+
 
                     entries.forEach(
                         entry => {
+
 
                             if (
                                 entry.isIntersecting
                             ) {
 
+
                                 entry.target
                                     .classList
-                                    .add("visible");
+                                    .add(
+                                        "visible"
+                                    );
+
 
                             }
+
 
                         }
                     );
 
+
                 },
 
+
                 {
-                    threshold: .14
+                    threshold: .13
                 }
+
 
             );
 
@@ -3302,80 +4513,125 @@
         ).forEach(
             element => {
 
+
                 observer.observe(
                     element
                 );
+
 
             }
         );
 
 
-        /* ============================================================
-           LUZ QUE SIGUE SUAVEMENTE EL MOUSE
-        ============================================================ */
-
-        const ambientLight =
-            document.getElementById(
-                "ambientLight"
-            );
-
+        /* ==========================================================
+           LUZ DEL MOUSE
+        ========================================================== */
 
         document.addEventListener(
             "mousemove",
             event => {
 
+
                 ambientLight.style.left =
-                    event.clientX + "px";
+                    event.clientX +
+                    "px";
+
 
                 ambientLight.style.top =
-                    event.clientY + "px";
+                    event.clientY +
+                    "px";
+
 
             }
         );
 
 
-        /* ============================================================
-           CIELO DE ESTRELLAS
-        ============================================================ */
+        /* ==========================================================
+           ESTRELLAS
+        ========================================================== */
 
         const canvas =
             document.getElementById(
                 "stars"
             );
 
+
         const ctx =
-            canvas.getContext("2d");
+            canvas.getContext(
+                "2d"
+            );
+
 
         let stars = [];
 
 
         function resizeCanvas() {
 
+
+            const ratio =
+                Math.min(
+                    window.devicePixelRatio || 1,
+                    2
+                );
+
+
             canvas.width =
-                window.innerWidth;
+                window.innerWidth *
+                ratio;
+
 
             canvas.height =
-                window.innerHeight;
+                window.innerHeight *
+                ratio;
+
+
+            canvas.style.width =
+                window.innerWidth +
+                "px";
+
+
+            canvas.style.height =
+                window.innerHeight +
+                "px";
+
+
+            ctx.setTransform(
+                ratio,
+                0,
+                0,
+                ratio,
+                0,
+                0
+            );
 
 
             createStars();
+
 
         }
 
 
         function createStars() {
 
+
             stars = [];
 
+
             const total =
-                Math.floor(
-                    (
-                        window.innerWidth
-                        *
-                        window.innerHeight
+                Math.max(
+                    45,
+                    Math.floor(
+
+                        (
+                            window.innerWidth *
+                            window.innerHeight
+                        )
+
+                        /
+
+                        12000
+
                     )
-                    /
-                    11000
                 );
 
 
@@ -3385,100 +4641,114 @@
                 i++
             ) {
 
+
                 stars.push({
 
+
                     x:
-                        Math.random()
-                        *
-                        canvas.width,
+                        Math.random() *
+                        window.innerWidth,
+
 
                     y:
-                        Math.random()
-                        *
-                        canvas.height,
+                        Math.random() *
+                        window.innerHeight,
+
 
                     radius:
-                        Math.random()
-                        *
-                        1.4,
+                        .4 +
+                        Math.random() *
+                        1.1,
+
 
                     opacity:
-                        .15
-                        +
-                        Math.random()
-                        *
-                        .65,
+                        .10 +
+                        Math.random() *
+                        .55,
+
 
                     speed:
-                        .002
-                        +
-                        Math.random()
-                        *
-                        .009,
+                        .002 +
+                        Math.random() *
+                        .008,
+
 
                     direction:
-                        Math.random() > .5
-                            ? 1
-                            : -1
+                        Math.random() >
+                        .5
+
+                        ? 1
+                        : -1
+
 
                 });
 
+
             }
+
 
         }
 
 
         function drawStars() {
 
+
             ctx.clearRect(
+
                 0,
                 0,
-                canvas.width,
-                canvas.height
+                window.innerWidth,
+                window.innerHeight
+
             );
 
 
             stars.forEach(
                 star => {
 
+
                     star.opacity +=
-                        star.speed
-                        *
+                        star.speed *
                         star.direction;
 
 
                     if (
-                        star.opacity >= .85
-                        ||
-                        star.opacity <= .1
+                        star.opacity >= .72 ||
+                        star.opacity <= .08
                     ) {
 
+
                         star.direction *= -1;
+
 
                     }
 
 
                     ctx.beginPath();
 
+
                     ctx.arc(
+
                         star.x,
                         star.y,
                         star.radius,
                         0,
                         Math.PI * 2
+
                     );
 
 
                     ctx.fillStyle =
                         `rgba(
-                            255,
-                            223,
-                            233,
+                            244,
+                            229,
+                            200,
                             ${star.opacity}
                         )`;
 
 
                     ctx.fill();
+
 
                 }
             );
@@ -3487,6 +4757,7 @@
             requestAnimationFrame(
                 drawStars
             );
+
 
         }
 
@@ -3501,7 +4772,9 @@
 
         drawStars();
 
+
     </script>
+
 
 </body>
 </html>
