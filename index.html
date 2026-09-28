@@ -1481,20 +1481,23 @@
 
         /* ==========================================================
            FOTOS
+
+           4 columnas en computadora,
+           2x2 en tablet, 1 columna en móvil.
         ========================================================== */
 
         .gallery-grid {
             width:
-                min(960px, 100%);
+                min(1100px, 100%);
 
             margin: auto;
 
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(4, 1fr);
 
-            gap: 26px;
+            gap: 24px;
         }
 
 
@@ -2372,6 +2375,9 @@
 
 
             .gallery-grid {
+                width:
+                    min(640px, 100%);
+
                 grid-template-columns:
                     repeat(2, 1fr);
             }
@@ -3572,6 +3578,57 @@
                     <div class="polaroid-caption">
 
                         Mel & Fer
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- FOTO 4 -->
+
+                <div
+                    class="polaroid"
+                    style="--rotation:2deg"
+                >
+
+
+                    <div class="photo-wrapper">
+
+
+                        <img
+
+                            src="foto4.jpg"
+
+                            alt="Mel y Fer"
+
+                            loading="lazy"
+
+                            decoding="async"
+
+                            onerror="
+                                this.style.display='none';
+                                this.nextElementSibling.style.display='flex';
+                            "
+
+                        >
+
+
+                        <div class="photo-placeholder">
+
+                            Un recuerdo más
+                            de nosotros ♡
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="polaroid-caption">
+
+                        siempre usted ♡
 
                     </div>
 
